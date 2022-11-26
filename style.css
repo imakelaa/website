@@ -12,8 +12,14 @@ main{
     place-items:center;
     background-color: rgb(225, 225, 214);
 }
-    
-
+.socialicon{
+    width: 5em;
+    height: 5em;
+margin-top: 0.5em;
+}
+.socialicon:hover{
+    opacity:0.8;
+}
 section {
     padding:2em;
     text-align: center;
