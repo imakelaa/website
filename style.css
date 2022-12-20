@@ -10,7 +10,7 @@ main{
     height:100vh;
     display:grid;
     place-items:center;
-    background-color: rgb(225, 225, 214);
+    background-color: rgb(18, 39, 17);
 }
 .socialicon{
     width: 5em;
