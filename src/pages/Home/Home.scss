@@ -19,4 +19,15 @@
     color: $primary-color;
     text-align: center;
   }
+
+  .projects-title {
+  font-size: 32px;
+  margin: 4rem 0 2rem 0;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
 }
