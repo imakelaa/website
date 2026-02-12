@@ -1,0 +1,22 @@
+@import '../../styles/variables';
+
+.home {
+  min-height: 100vh;
+  background-color: $background-color;
+  display: flex;
+  flex-direction: column;
+
+  .home__content {
+    flex: 1; // take remaining space
+    display: flex;
+    justify-content: center; // horizontal centering
+    align-items: center;     // vertical centering
+  }
+
+  .home__title {
+    font-size: 48px;
+    font-weight: 400;
+    color: $primary-color;
+    text-align: center;
+  }
+}
