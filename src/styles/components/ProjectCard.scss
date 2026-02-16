@@ -1,0 +1,49 @@
+@import '../variables';
+
+
+
+.project-card {
+    background: #191819;
+    border: 1px solid #522504;
+    border-radius: 8px;
+    padding: 16px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    width: 260px;
+}
+
+
+.project-card__image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    border-radius: 4px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.project-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.project-card__title {
+    font-size: 18px;
+    font-weight: 600;
+    color: $card-font-color;
+    margin: 0;
+}
+
+.project-card__description {
+    font-size: 14px;
+    color: $card-font-color;
+    margin: 0;
+}

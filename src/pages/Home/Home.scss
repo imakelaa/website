@@ -20,14 +20,26 @@
     text-align: center;
   }
 
-  .projects-title {
-  font-size: 32px;
-  margin: 4rem 0 2rem 0;
-}
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
-}
+  .projects__section {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px; // space between title and grid
+    margin-top: 120px;
+  }
+
+  .projects-title {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg); // flips it bottom-to-top
+      color: $primary-color;
+      // font-family: $font-family;
+      font-size: 32px;
+  }
+
+  .projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8.5rem;
+    justify-content: center;
+  }
 }
