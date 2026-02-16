@@ -2,7 +2,7 @@
 
 .home {
   min-height: 100vh;
-  background-color: $background-color;
+  // background-color: $background-color;
   display: flex;
   flex-direction: column;
 
@@ -19,7 +19,6 @@
     color: $primary-color;
     text-align: center;
   }
-
 
   .projects__section {
     display: flex;

@@ -6,13 +6,15 @@ export function NavBar() {
   const [showLogo, setShowLogo] = useState(false);
   const location = useLocation();
 
+  const isSidequests = location.pathname === "/sidequests";
+
   useEffect(() => {
     const handleScroll = () => setShowLogo(window.scrollY > 100);
 
-    if (location.pathname !== "/") {
-      setShowLogo(true);
-    } else {
+    if (location.pathname === "/") {
       setShowLogo(window.scrollY > 100);
+    } else {
+      setShowLogo(true);
     }
 
     window.addEventListener("scroll", handleScroll);
@@ -20,7 +22,7 @@ export function NavBar() {
   }, [location.pathname]);
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${isSidequests ? "navbar--sidequests" : "navbar--default"}`}>
       {showLogo && <div className="navbar__logo">Pakhi Sinha</div>}
       <ul className="navbar__links">
         <li><Link to="/">Home</Link></li>

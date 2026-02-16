@@ -2,6 +2,7 @@
 import "./Home.scss"
 import { ProjectCard } from "../../components/ProjectCard";
 import sampleImage from "../../assets/sample-image.webp"
+import CfLogo from "../../assets/CFLogo.webp"
 
 function Home(){
     return (
@@ -17,7 +18,7 @@ function Home(){
                     <ProjectCard
                     title="Project One"
                     description="Short description here."
-                    image={sampleImage}
+                    image={CfLogo}
                     />
 
                     <ProjectCard
