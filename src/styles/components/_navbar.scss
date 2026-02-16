@@ -40,6 +40,10 @@
 
   &--sidequests {
     background-color: $sidequests-nav-color;
+    .navbar__logo,
+    .navbar__links a {
+      color: $sidequests-font-color;
+    }
   }
 
 }
