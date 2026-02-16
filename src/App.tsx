@@ -5,15 +5,19 @@ import Resume from "../src/pages/Resume";
 import Sidequests from "./pages/Sidequests";
 // import './App.css';
 import '../src/styles/base/_layout.scss'
+import { useEffect } from "react";
 
 function AppWrapper() {
   const location = useLocation();
 
-  // Set class based on route
-  const pageClass = location.pathname === "/sidequests" ? "page-sidequests" : "page-default";
-
+  useEffect(() => {
+    const pageClass = location.pathname === "/sidequests" ? "page-sidequests" : "page-default";
+    
+    document.body.className = pageClass;
+  }, [location]);
+  
   return (
-    <div className={pageClass}>
+    <>
       <NavBar />
       <main className="content-wrapper">
       <Routes>
@@ -22,7 +26,7 @@ function AppWrapper() {
         <Route path="/sidequests" element={<Sidequests />} />
       </Routes>
       </main>
-    </div>
+    </>
   );
 }
 
