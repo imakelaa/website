@@ -3,12 +3,14 @@ import "./Home.scss"
 import { ProjectCard } from "../../components/ProjectCard";
 import sampleImage from "../../assets/sample-image.webp"
 import CfLogo from "../../assets/CFLogo.webp"
+import { AboutCard } from "../../components/AboutCard";
 
 function Home(){
     return (
         <section className="home">
             <div className="home__content">
-                <h1 className="home__title"> Hi, I'm Pakhi.</h1>
+                {/* <h1 className="home__title"> Hi, I'm Pakhi.</h1> */}
+                <AboutCard />
             </div>
 
             <section className="projects__section">

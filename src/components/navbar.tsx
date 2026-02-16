@@ -12,7 +12,7 @@ export function NavBar() {
     const handleScroll = () => setShowLogo(window.scrollY > 100);
 
     if (location.pathname === "/") {
-      setShowLogo(window.scrollY > 100);
+      setShowLogo(window.scrollY > 50);
     } else {
       setShowLogo(true);
     }
