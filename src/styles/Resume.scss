@@ -1,4 +1,4 @@
-@import './variables';
+@use './variables' as vars;
 
 .resume {
   max-width: 900px;
@@ -17,7 +17,7 @@
 
     .resume__title {
       font-size: 1.25rem;
-      color: $primary-color;
+      color: vars.$primary-color;
       margin-top: 0.25rem;
     }
 
@@ -48,7 +48,7 @@
 
   .resume__card {
     padding: 1.75rem 2rem;
-    background: $resume-box-color;
+    background: vars.$resume-box-color;
     border-radius: 8px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   }
@@ -98,6 +98,6 @@
     padding: 0.4rem 0.85rem;
     border-radius: 999px;
     font-size: 0.85rem;
-    background: $resume-box-color;
+    background: vars.$resume-box-color;
   }
 }

@@ -1,7 +1,7 @@
-@import '../variables';
+@use '../variables' as vars;
 
 .about-card {
-  font-family: $font-family;
+  font-family: vars.$font-family;
   width: 100%;
 
   &__container {
@@ -19,22 +19,11 @@
     }
   }
 
-//   &__title {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     height: 50vh;          // full viewport height
-//     font-size: 48px;
-//     font-weight: 400;
-//     line-height: 1.2;
-//     color: $primary-color;
-//     text-align: center;
-//   }
 &__title {
     font-size: 48px;
     font-weight: 400;
     line-height: 1.2;
-    color: $primary-color;
+    color: vars.$primary-color;
     text-align: left;
 
     @media (max-width: 768px) {
@@ -43,25 +32,11 @@
     }
   }
 
-//   &__box {
-//     max-width: 900px;
-//     margin: 3rem auto;      // centers horizontally and adds vertical spacing
-//     background: $box-color;
-//     padding: 1rem 2rem;
-//     border-radius: 0px;
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: center;
-//     gap: 2rem;
-//     min-height: 400px;
-//   }
-
 &__box {
     flex: 1;
     max-width: 900px;
     min-height: 600px;
-    background: $box-color;
+    background: vars.$box-color;
     padding: 1rem 2rem;
     border-radius: 0px;
 
@@ -72,19 +47,12 @@
     gap: 2rem;
   }
 
-//   &__text {
-//     font-weight: 400;
-//     font-size: 18px;
-//     line-height: 140%;
-//     color: $about-text-color;
-//     text-align: center;
-//   }
 
 &__text {
     font-weight: 400;
     font-size: 18px;
     line-height: 140%;
-    color: $about-text-color;
+    color: vars.$about-text-color;
     text-align: left;
 
     @media (max-width: 768px) {
@@ -93,21 +61,6 @@
     }
   }
 
-//   /* Responsive adjustments */
-//   @media (max-width: 768px) {
-//     &__title {
-//       font-size: 28px;
-//     }
-
-//     &__box {
-//       padding: 2rem 1.5rem;
-//       min-height: 300px;
-//     }
-
-//     &__text {
-//       font-size: 16px;
-//     }
-//   }
 }
 
 

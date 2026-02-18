@@ -1,8 +1,7 @@
-@import '../../styles/variables';
+@use '../../styles/variables' as vars;
 
 .home {
   min-height: 100vh;
-  // background-color: $background-color;
   display: flex;
   flex-direction: column;
 
@@ -16,7 +15,7 @@
   .home__title {
     font-size: 48px;
     font-weight: 400;
-    color: $primary-color;
+    color: vars.$primary-color;
     text-align: center;
   }
 
@@ -30,8 +29,7 @@
   .projects-title {
       writing-mode: vertical-rl;
       transform: rotate(180deg); // flips it bottom-to-top
-      color: $primary-color;
-      // font-family: $font-family;
+      color: vars.$primary-color;
       font-size: 32px;
   }
 

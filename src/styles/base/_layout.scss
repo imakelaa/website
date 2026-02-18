@@ -1,11 +1,11 @@
-@import '../variables';
+@use '../variables' as vars;
 html, body, #root {
   margin: 0;
   padding: 0;
   width: 100%;
   min-height: 100%;
   box-sizing: border-box;
-  font-family: $font-family;
+  font-family: vars.$font-family;
   line-height: 1.5;
 }
 
@@ -53,9 +53,9 @@ button:hover { border-color: #646cff; }
 }
 
   .page-default {
-    background-color: $default-background-color;
+    background-color: vars.$default-background-color;
   }
 
   .page-sidequests {
-    background-color: $sidequests-background-color; // change for sidequests page
+    background-color: vars.$sidequests-background-color; // change for sidequests page
   }

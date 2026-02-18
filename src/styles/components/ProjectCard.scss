@@ -1,4 +1,4 @@
-@import '../variables';
+@use '../variables' as vars;
 
 
 
@@ -38,12 +38,12 @@
 .project-card__title {
     font-size: 18px;
     font-weight: 600;
-    color: $card-font-color;
+    color: vars.$card-font-color;
     margin: 0;
 }
 
 .project-card__description {
     font-size: 14px;
-    color: $card-font-color;
+    color: vars.$card-font-color;
     margin: 0;
 }
