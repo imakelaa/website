@@ -1,0 +1,103 @@
+@import './variables';
+
+.resume {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  
+  .resume__contact {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    .resume__name {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .resume__title {
+      font-size: 1.25rem;
+      color: $primary-color;
+      margin-top: 0.25rem;
+    }
+
+    .resume__links {
+      margin-top: 0.75rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+  }
+
+  .resume__block {
+    margin-bottom: 3rem;
+  }
+
+  .resume__section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  .resume__card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .resume__card {
+    padding: 1.75rem 2rem;
+    background: $resume-box-color;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .resume__card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.4rem;
+  }
+
+  .resume__card-date {
+    font-size: 0.9rem;
+    opacity: 0.75;
+  }
+
+  .resume__card-subtitle {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 0.75rem;
+  }
+
+  .resume__card-list {
+    padding-left: 1.2rem;
+    margin-top: 0.5rem;
+  }
+
+ 
+  .resume__skills-group {
+    margin-bottom: 1.5rem;
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 550;
+      margin-bottom: 0.6rem;
+      opacity: 0.85;
+    }
+  }
+
+  .resume__skills-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .resume__skill-pill {
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    background: $resume-box-color;
+  }
+}

@@ -1,9 +1,8 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home/Home"
 import { NavBar } from "./components/Navbar";
-import Resume from "../src/pages/Resume";
+import Resume from "../src/pages/ResumePage";
 import Sidequests from "./pages/Sidequests";
-// import './App.css';
 import '../src/styles/base/_layout.scss'
 import { useEffect } from "react";
 

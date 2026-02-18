@@ -3,6 +3,7 @@ import "./Home.scss"
 import { ProjectCard } from "../../components/ProjectCard";
 import sampleImage from "../../assets/sample-image.webp"
 import CfLogo from "../../assets/CFLogo.webp"
+import BtLogo from "../../assets/BTlogo.png"
 import { AboutCard } from "../../components/AboutCard";
 
 function Home(){
@@ -18,19 +19,19 @@ function Home(){
 
                 <div className="projects-grid">
                     <ProjectCard
-                    title="Project One"
+                    title="Cloudflare"
                     description="Short description here."
                     image={CfLogo}
                     />
 
                     <ProjectCard
-                    title="Project Two"
+                    title="BookTessera"
                     description="Another description here."
-                    image={sampleImage}
+                    image={BtLogo}
                     />
 
                     <ProjectCard
-                    title="Project Three"
+                    title="Multithreaded HTTP Server"
                     description="Something cool here."
                     image={sampleImage}
                     />
