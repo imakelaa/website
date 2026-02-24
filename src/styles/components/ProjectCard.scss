@@ -46,4 +46,6 @@
     font-size: 14px;
     color: vars.$card-font-color;
     margin: 0;
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
 }
