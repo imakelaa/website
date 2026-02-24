@@ -1,12 +1,12 @@
-import "../styles/components/ProjectCard.scss"
+import "../styles/components/ProjectCard.scss";
 
 type ProjectCardProps = {
   title: string;
-  description: string;
   image: string;
+  children: any;
 };
 
-export function ProjectCard({ title, description, image }: ProjectCardProps) {
+export function ProjectCard({ title, image, children }: ProjectCardProps) {
   return (
     <div className="project-card">
       <div className="project-card__image">
@@ -15,7 +15,10 @@ export function ProjectCard({ title, description, image }: ProjectCardProps) {
 
       <div className="project-card__body">
         <h3 className="project-card__title">{title}</h3>
-        <p className="project-card__description">{description}</p>
+
+        <div className="project-card__description">
+          {children}
+        </div>
       </div>
     </div>
   );

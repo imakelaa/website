@@ -18,13 +18,14 @@
     color: vars.$primary-color;
     text-align: center;
   }
+}
 
-  .projects__section {
+.projects__section {
     display: flex;
     align-items: flex-start;
     gap: 10px; // space between title and grid
     margin-top: 120px;
-  }
+  
 
   .projects-title {
       writing-mode: vertical-rl;

@@ -1,6 +1,11 @@
-import { resumeData } from "../pages/Data/resume.data";
-import ResumeRenderer from "./ResumeRenderer";
+import { resumeData } from "./Data/resume.data";
+import { PageRenderer } from "./PageRenderer";
+import "../styles/Resume.scss";
 
 export default function Resume() {
-  return <ResumeRenderer data={resumeData} />;
+  return(
+  <main className="resume">
+      <PageRenderer page={resumeData} />
+    </main>
+  );
 }
