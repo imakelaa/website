@@ -52,9 +52,17 @@ export interface ProjectsSection {
   projects: ProjectItem[];
 }
 
+export interface ProjectDescriptionItem {
+  text: string;
+  link?: {
+    label: string;
+    url: string;
+  };
+}
+
 export interface ProjectItem {
   id: string;
   title: string;
   image: string;
-  description: string[];
+  description: ProjectDescriptionItem[];
 }

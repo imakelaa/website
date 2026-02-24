@@ -9,15 +9,17 @@
     padding: 16px;
 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 16px;
 
-    width: 260px;
+    width: auto;
+    max-width: 1086px;
+    min-height: auto;
 }
 
 
 .project-card__image {
-    width: 100%;
+    flex: 0 0 320px;
     height: 220px;
     overflow: hidden;
     border-radius: 4px;
@@ -48,4 +50,24 @@
     margin: 0;
     word-wrap: break-word;
     overflow-wrap: anywhere;
+
+    ul {
+        margin: 0;
+        padding-left: 1rem;
+    }
+
+    li {
+        margin-bottom: 0.5rem;
+    }
+}
+
+@media (max-width: 900px){
+    .project-card {
+        flex-direction: column;
+    }
+
+    .project-card__image {
+        width: 100%;
+        height: auto;
+    }
 }

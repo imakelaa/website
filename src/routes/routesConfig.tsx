@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
 import Home from "../pages/Home/Home";
-import Resume from "../pages/Resume";
+import Resume from "../pages/ResumePage";
 import Sidequests from "../pages/Sidequests";
 
 export const ROUTE_CONFIG = [
