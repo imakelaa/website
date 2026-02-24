@@ -15,7 +15,7 @@ export const homePage: PageConfig = {
       content: [
         "Professionally, I'm a Software Engineer. I'm currently pursuing my Masters in Computer Science at UC Santa Cruz, where I also completed my Bachelors.",
         "My primary focus lies in backend. I have experience building complex end-to-end systems in C, TypeScript, and Go. In my free time, you'll often find me tinkering with my setup (just started tmux + nvim, so really into configs at the moment) or trying to break my own programs :).",
-        "Spiritually, I'm a connoisseur of asking the question 'why'. Check out my Resume or some of the things I do!",
+        " Check out my Projects below or\n",
       ],
     },
     {

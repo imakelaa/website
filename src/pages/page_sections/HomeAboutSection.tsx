@@ -13,13 +13,11 @@ export function AboutSection(props: AboutSectionType) {
             <h2 className="about-card__title">Hi,<br />I’m Pakhi.</h2>
             <div className="about-card__box">
               {content.map((line, index) => {
-                // handle the line that needs links manually
-                if (index === 3) {
+                if (index === 2) {
                   return (
                     <p key={index} className="about-card__text">
-                      Spiritually, I'm a connoisseur of asking the question "why". Check out my{" "}
-                      <Link to="/resume">Resume, </Link>
-                      or <Link to="/sidequests">some of the things I do!</Link>
+                      {line} check out my <Link to="/resume">Resume, 
+                      </Link> or <Link to="/sidequests">some of the things I do!</Link>
                     </p>
                   );
                 }
