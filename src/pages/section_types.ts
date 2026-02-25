@@ -33,12 +33,32 @@ export interface TimelineSection {
   items: TimelineItem[];
 }
 
+export interface TextWithLink {
+  text: string;
+  link?: {
+    label: string;
+    url: string;
+  };
+}
+
+export interface TimelineBulletItem {
+  text: string;
+  link?: {
+    label: string;
+    url: string;
+  };
+}
+
+export type TimelineBullet =
+  | TimelineBulletItem
+  | TimelineBulletItem[];
+
 export interface TimelineItem {
   id: string;
   title: string;
-  subtitle?: string;
+  subtitle?: TextWithLink | TextWithLink[];
   date: string;
-  bullets?: string[];
+  bullets?: TimelineBullet[];
 }
 
 export interface AboutSection {

@@ -116,12 +116,12 @@ export const homePage: PageConfig = {
             }
           ],
         },
-        {
-          id: "Branch-Predictor-Gem5",
-          title: "Perceptron-based Branch Predictor in Gem5",
-          image: aifm,
-          description: []
-        },
+        // {
+        //   id: "Branch-Predictor-Gem5",
+        //   title: "Perceptron-based Branch Predictor in Gem5",
+        //   image: aifm,
+        //   description: []
+        // },
         // add more here
       ],
     },
