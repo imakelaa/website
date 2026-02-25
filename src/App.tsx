@@ -31,7 +31,7 @@ function AppWrapper() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/website/">
       <AppWrapper />
     </BrowserRouter>
   );
