@@ -16,7 +16,7 @@ export function AboutSection(props: AboutSectionType) {
                 if (index === 2) {
                   return (
                     <p key={index} className="about-card__text">
-                      {line} check out my <Link to="/resume">Resume, 
+                      {line} Or <Link to="/resume">Resume, 
                       </Link> or <Link to="/sidequests">some of the things I do!</Link>
                     </p>
                   );

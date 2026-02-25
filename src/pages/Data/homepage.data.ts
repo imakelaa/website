@@ -2,6 +2,7 @@ import type { PageConfig } from "../page_types";
 import CfLogo from "../../assets/CFLogo.webp";
 import BtLogo from "../../assets/BTlogo.png";
 import sampleImage from "../../assets/sample-image.webp";
+import aifm from "../../assets/aifm.png"
 
 export const homePage: PageConfig = {
   title: "Home",
@@ -31,16 +32,19 @@ export const homePage: PageConfig = {
               text: "Worked on Cloudflare Stream and introduced Audio-only mode."
             },
             {
+              text: "Learned lot of new stuff! Worked in Go, Typescript. Used tools like Kibana, Grafana, Prometheus."
+            },
+            {
               text: "Wrote for the Cloudflare Blog — read it here:",
               link: {
-                label: "Extract audio from your videos with Cloudflare Stream",
+                label: "Extract audio from your videos with Cloudflare Stream.",
                 url: "https://blog.cloudflare.com/extract-audio-from-your-videos-with-cloudflare-stream/"
               }
             },
             {
               text: "Learn more about Cloudflare Stream:",
               link: {
-                label: "Cloudflare Stream Product Page",
+                label: "Cloudflare Stream Product Page.",
                 url: "https://www.cloudflare.com/products/cloudflare-stream/"
               }
             }
@@ -78,6 +82,47 @@ export const homePage: PageConfig = {
             }
           ],
         },
+        {
+          id: "Far-Memory",
+          title: "Study on Far Memory",
+          image: aifm,
+          description: [
+            {
+              text: "Far memory is a method of using another system's memory."
+            },
+            [
+              {
+                text: "Analyzed",
+                link: {
+                  label: "Application-Integrated Far Memory (AIFM).",
+                  url: "https://www.usenix.org/system/files/osdi20-ruan.pdf"
+                }
+              },
+            ],
+            [
+              {
+                text: "Utilized",
+                link: {
+                  label: "CloudLab.",
+                  url: "https://www.cloudlab.us/"
+                }
+              },
+              {
+                text: "Set up xl170 instances across a memory and compute node."
+              },
+            ],
+            {
+              text: "Testing the efficiency of AIFM involved creating load intensive C++ programs. The goal was to test AIFM's ability to almost cache memory appropriately, and test the cost of fetching from far-memory."
+            }
+          ],
+        },
+        {
+          id: "Branch-Predictor-Gem5",
+          title: "Perceptron-based Branch Predictor in Gem5",
+          image: aifm,
+          description: []
+        },
+        // add more here
       ],
     },
   ],

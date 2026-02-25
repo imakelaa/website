@@ -60,9 +60,11 @@ export interface ProjectDescriptionItem {
   };
 }
 
+export type ProjectDescription = ProjectDescriptionItem | ProjectDescriptionItem[]
+
 export interface ProjectItem {
   id: string;
   title: string;
   image: string;
-  description: ProjectDescriptionItem[];
+  description: ProjectDescription[];
 }

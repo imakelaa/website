@@ -29,15 +29,15 @@ export const resumeData: PageConfig = {
       groups: [
         {
           label: "Programming Languages",
-          items: ["C/C++", "Go", "TypeScript", "JavaScript", "Python"],
+          items: ["Python", "C/C++", "Go", "TypeScript", "JavaScript"],
         },
         {
           label: "Frameworks & Libraries",
-          items: ["React", "Node.js", "Express"],
+          items: ["React", "Node.js", "Express", "PyTorch", "Keras", "Tensorflow", "NumPy", "Pandas"],
         },
         {
           label: "Tools & Platforms",
-          items: ["Git", "Docker", "PostgreSQL", "Figma"],
+          items: ["Git", "Docker", "PostgreSQL", "Linux", "Docker", "Kubernetes", "CUDA", "Figma"],
         },
       ],
     },
