@@ -1,34 +1,38 @@
 @use '../variables' as vars;
+
 html, body, #root {
   margin: 0;
   padding: 0;
   width: 100%;
-  min-height: 100%;
+  min-height: 100vh;
   box-sizing: border-box;
-  font-family: vars.$font-family;
+  font-family: vars.$font-sans;
   line-height: 1.5;
-}
-
-.content-wrapper {
-  max-width: 1280px;  // content width
-  margin: 0 auto;     // center horizontally
-  padding: 2rem;
-  text-align: left;   // optional
-}
+  }
 
 *, *::before, *::after {
   box-sizing: inherit;
+  }
+
+// Full-bleed layout — each section manages its own width/padding
+.content-wrapper {
+  width: 100%;
+  padding: 0;
 }
 
-/* links */
+// Inner content max-width container (used inside sections)
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
 a {
   font-weight: 500;
-  color: #db64ff;
-  text-decoration: inherit;
+  text-decoration: none;
+  color: inherit;
 }
-a:hover { color: #535bf2; }
 
-/* buttons */
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -36,26 +40,71 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover { border-color: #646cff; }
 
-/* dark/light mode */
-@media (prefers-color-scheme: light) {
-  html, body {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover { color: #747bff; }
-  button { background-color: #f9f9f9; }
+.page-default {
+  background-color: vars.$cream;
 }
 
-  .page-default {
-    background-color: vars.$default-background-color;
+.page-sidequests {
+  background-color: vars.$sidequests-background-color;
+}
+
+.page-writings {
+  background-color: #f0eeeb;
+}
+
+.page-contents {
+  background-color: #2a2a2a;
+}
+
+.page-photography {
+  background-color: #0d1f3c;
+}
+
+// Sticky card stacking — each section slides up over the previous one
+.section-slide {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+
+  &:not(:first-child) {
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.22);
+    border-radius: 14px 14px 0 0;
   }
 
-  .page-sidequests {
-    background-color: vars.$sidequests-background-color; // change for sidequests page
+  // Sections fill their sticky container
+  > * {
+    height: 100%;
+    min-height: unset;
   }
+}
+
+// Highlight bubble (yellow pill behind text)
+.highlight {
+  background-color: vars.$mustard;
+  border-radius: 4px;
+  padding: 0 6px;
+  display: inline;
+}
+
+// Sticky note card
+.sticky-note {
+  background: vars.$white;
+  border-radius: 6px;
+  box-shadow: 2px 4px 16px rgba(0,0,0,0.10);
+  padding: 1rem 1.2rem;
+
+  .sticky-note__header {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: vars.$dusty-blue;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1.5px solid #e0e0e0;
+  }
+}
