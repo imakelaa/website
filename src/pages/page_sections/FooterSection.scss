@@ -1,0 +1,73 @@
+@use '../../styles/variables' as vars;
+
+.footer-section {
+  position: relative;
+  z-index: 10;
+  background-color: vars.$navy;
+  color: vars.$white;
+  padding: 3rem 0 2rem;
+
+  &__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  &__linkedin {
+    font-size: 0.85rem;
+    color: vars.$dusty-blue;
+    text-decoration: underline;
+    word-break: break-all;
+
+    &:hover { color: vars.$white; }
+  }
+
+  &__right {
+    text-align: right;
+  }
+
+  &__sections-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.5);
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.9;
+  }
+
+  &__bottom {
+    max-width: 1200px;
+    margin: 2rem auto 0;
+    padding: 1.5rem 3rem 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__tagline {
+    font-family: vars.$font-serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.6);
+  }
+
+  &__name {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.4);
+  }
+}
