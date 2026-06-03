@@ -54,7 +54,7 @@ function AppWrapper() {
 
 function App() {
   return (
-    <BrowserRouter basename="/website/">
+    <BrowserRouter basename="/">
       <AppWrapper />
     </BrowserRouter>
   );
