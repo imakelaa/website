@@ -1,23 +1,26 @@
-$font-family: 'Fira Code', monospace;
+// Typography
+$font-sans: 'DM Sans', sans-serif;
+$font-serif: 'Playfair Display', serif;
+$font-mono: 'Fira Code', monospace;
+$font-family: $font-sans;
 
-// project card styles:
+// New palette
+$navy:       #0d1f3c;
+$cream:      #f5f0e8;
+$mustard:    #e8c84a;
+$dusty-blue: #8fa3b8;
+$peach:      #e8c9a0;
+$white:      #ffffff;
+$light-blue:      #d9f5fe;
+
+// Legacy / resume (kept for resume page)
 $card-font-color: #e7e5e5;
-
-// nav-bar stuff:
-$default-nav-color: #F5ECF6;
+$default-nav-color: $navy;
 $sidequests-nav-color: #1d1d1e;
-
-// background colors
-$default-background-color: #F5ECF6;
+$default-background-color: $cream;
 $sidequests-background-color: #1d1d1e;
-
-// font colors
 $primary-color: #191819;
 $sidequests-font-color: #d9d9f3;
-
-// about-card
 $box-color: #1D1D1D;
 $about-text-color: #ffffff;
-
-// resume page
 $resume-box-color: #e9e0e9;
