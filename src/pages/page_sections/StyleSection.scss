@@ -1,0 +1,222 @@
+@use '../../styles/variables' as vars;
+
+.style-section {
+  background-image: var(--bg-url, none);
+  background-size: cover;
+  background-position: center;
+  background-color: #c8daf0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+
+  &__inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 4rem 3rem;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    gap: 2.5rem;
+  }
+
+  // ── Left: text ───────────────────────────────────────────
+  &__left {
+    flex: 0 0 34%;
+    padding-top: 1rem;
+  }
+
+  &__headline {
+    font-family: 'Helvetica World', Helvetica, Arial, sans-serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+    margin: 0 0 1.8rem;
+  }
+
+  &__serve {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 3rem;
+    color: #000;
+  }
+
+  &__body {
+    font-family: 'Helvetica World', Helvetica, Arial, sans-serif;
+    font-size: 1.05rem;
+    color: #fff;
+    line-height: 1.7;
+    margin: 0 0 1rem;
+  }
+
+  // ── Center: macOS file-preview card ─────────────────────
+  &__photo-card {
+    flex: 0 0 36%;
+    border: 1px solid #c8c8c8;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+    background: #fff;
+  }
+
+  &__photo-bar {
+    background: #e5e5e5;
+    border-bottom: 1px solid #d0d0d0;
+    padding: 5px 12px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #333;
+  }
+
+  &__photo {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  &__photo-placeholder {
+    height: 480px;
+    background: #f0f0f0;
+  }
+
+  // ── Right: folders + notes ───────────────────────────────
+  &__sidebar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    padding-top: 0.5rem;
+  }
+
+  &__files {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  // ── iOS Notes card ────────────────────────────────────────
+  &__note {
+    margin-top: 3rem;
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  &__note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px 8px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+    font-family: 'Helvetica World', Helvetica, Arial, sans-serif;
+  }
+
+  &__note-back {
+    color: #007aff;
+    font-size: 0.95rem;
+  }
+
+  &__note-actions {
+    display: flex;
+    gap: 0.8rem;
+    color: #007aff;
+    font-size: 1rem;
+  }
+
+  &__note-body {
+    padding: 1rem 1.2rem 1.2rem;
+  }
+
+  &__note-title {
+    font-family: 'Helvetica World', Helvetica, Arial, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #000;
+    background: vars.$mustard;
+    display: inline;
+    padding: 1px 4px;
+    border-radius: 2px;
+    margin-bottom: 0.8rem;
+    line-height: 1.8;
+  }
+
+  &__checklist {
+    list-style: none;
+    margin: 0.8rem 0 0;
+    padding: 0;
+    font-family: 'Helvetica World', Helvetica, Arial, sans-serif;
+    font-size: 0.9rem;
+    color: #000;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.25rem 0;
+    }
+  }
+
+  &__check {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    flex-shrink: 0;
+    color: transparent;
+
+    &--done {
+      background: vars.$mustard;
+      border-color: vars.$mustard;
+      color: #fff;
+    }
+  }
+}
+
+// macOS-style folder icons
+.fake-file {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: default;
+  user-select: none;
+  text-decoration: none;
+
+  &--link {
+    cursor: pointer;
+    border-radius: 6px;
+    padding: 4px 6px;
+    transition: background 0.15s;
+
+    &:hover {
+      background: rgba(232, 200, 74, 0.55);
+
+      .fake-file__icon {
+        filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.35)) brightness(1.1);
+      }
+    }
+  }
+
+  &__icon {
+    font-size: 5.5rem;
+    line-height: 1;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+  }
+
+  &__label {
+    font-family: 'Helvetica World', Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    color: #fff;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.35);
+    padding: 1px 6px;
+    border-radius: 3px;
+  }
+}
