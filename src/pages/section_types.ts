@@ -20,10 +20,12 @@ export interface HomeSection {
   photos: string[];
 }
 
+export type RoleBullet = string | { text: string; href: string; linkText?: string };
+
 export interface RoleCard {
   id: string;
   label: string;
-  bullets: string[];
+  bullets: RoleBullet[];
 }
 
 export interface RolesSection {

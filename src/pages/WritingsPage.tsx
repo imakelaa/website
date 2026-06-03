@@ -50,10 +50,10 @@ const writings: Writing[] = [
     title: "Extract audio from your videos with Cloudflare Stream",
     excerpt: "Cloudflare Stream is expanding its capabilities beyond video processing. The platform now enables developers to seamlessly extract audio from videos through a unified system designed to simplify media workflows — because processing entire video files just to access audio is slow, costly, and complex.",
   },
-  { category: "Research", year: "2024", slug: "far-memory",      bg: "#e8d5c4" },
-  { category: "Essay",    year: "2024", slug: "working-in-tech", bg: "#d4e8d4" },
-  { category: "Essay",    year: "2025", slug: "aesthetic",       bg: "#e8c9d4" },
-  { category: "Project",  year: "2025", slug: "book-tessera",    bg: "#cdd8e8" },
+  { category: "Research", year: "2025", slug: "far-memory",      bg: "#e8d5c4" },
+  // { category: "Essay",    year: "2024", slug: "working-in-tech", bg: "#d4e8d4" },
+  // { category: "Essay",    year: "2025", slug: "aesthetic",       bg: "#e8c9d4" },
+  { category: "Project",  year: "2024", slug: "book-tessera",    bg: "#cdd8e8" },
 ];
 
 export default function WritingsPage() {

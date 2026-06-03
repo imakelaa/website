@@ -117,4 +117,14 @@
     line-height: 2;
     li { margin: 0; }
   }
+
+  .bullet-link {
+    background-color: #e8c84a;
+    color: inherit;
+    text-decoration: none;
+    padding: 0 2px;
+    border-radius: 2px;
+
+    &:hover { background-color: darken(#e8c84a, 10%); }
+  }
 }

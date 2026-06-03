@@ -1,11 +1,12 @@
 import type { RolesSection } from "../section_types";
+import { Link } from "react-router-dom";
 import "./RolesSection.scss";
 
 export function RolesSection({ roles, loadingLabel, backgroundPhoto }: RolesSection) {
   return (
     <section className="roles-section" style={backgroundPhoto ? { '--bg-url': `url(${backgroundPhoto})` } as React.CSSProperties : undefined}>
       <h2 className="roles-section__headline">
-        I am...<span className="roles-section__cursor" aria-hidden="true">|</span>
+        I am a...<span className="roles-section__cursor" aria-hidden="true">|</span>
       </h2>
 
       <div className="roles-section__inner">
@@ -14,7 +15,15 @@ export function RolesSection({ roles, loadingLabel, backgroundPhoto }: RolesSect
             <div key={role.id} className="sticky-note roles-section__card">
               <div className="sticky-note__header">[0{i + 1}] {role.label}</div>
               <ul>
-                {role.bullets.map((b, j) => <li key={j}>{b}</li>)}
+                {role.bullets.map((b, j) => (
+                  <li key={j}>
+                    {typeof b === "string"
+                      ? b
+                      : b.linkText
+                        ? <>{b.text}<Link to={b.href} className="bullet-link">{b.linkText}</Link></>
+                        : <Link to={b.href}>{b.text}</Link>}
+                  </li>
+                ))}
               </ul>
             </div>
           ))}
