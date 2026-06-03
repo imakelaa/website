@@ -1,0 +1,83 @@
+@use '../../styles/variables' as vars;
+
+.work-section {
+  background: linear-gradient(
+    160deg,
+    vars.$cream 0%,
+    vars.$peach 50%,
+    vars.$dusty-blue 100%
+  );
+  display: flex;
+  align-items: center;
+
+  &__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem;
+    width: 100%;
+  }
+
+  &__headline {
+    font-family: vars.$font-sans;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1.25;
+    margin: 0 0 3rem;
+    max-width: 480px;
+  }
+
+  &__cards {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+}
+
+.work-card {
+  background: vars.$white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  flex: 1 1 260px;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 4px 16px rgba(0,0,0,0.08);
+
+  &__title {
+    font-family: vars.$font-sans;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    color: #1a1a1a;
+  }
+
+  ul {
+    margin: 0 0 1rem;
+    padding-left: 1.2rem;
+    font-size: 0.88rem;
+    color: #555;
+    line-height: 1.8;
+    flex: 1;
+    li { margin: 0; }
+  }
+
+  &__links {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: auto;
+  }
+
+  &__link {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.3rem 0.7rem;
+    border-radius: 4px;
+    background: vars.$navy;
+    color: vars.$white;
+    transition: opacity 0.18s;
+
+    &:hover { opacity: 0.8; }
+  }
+}
