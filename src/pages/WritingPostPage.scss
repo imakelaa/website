@@ -63,6 +63,16 @@
   }
 
   &__h2 {
-    display: none;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+  }
+
+  &__img {
+    display: block;
+    max-width: 60%;
+    height: auto;
+    margin: 1.5rem auto;
+    border-radius: 4px;
   }
 }

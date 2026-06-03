@@ -8,6 +8,11 @@ const markdownFiles = import.meta.glob("../content/writings/*.md", {
   import: "default",
 });
 
+const contentImages = import.meta.glob("../content/images/*", {
+  eager: true,
+  import: "default",
+}) as Record<string, string>;
+
 function extractSections(raw: string): string[] {
   return raw
     .split("\n")
@@ -48,7 +53,7 @@ export default function WritingPostPage() {
       <div className="writing-post__layout">
         <aside className="writing-post__sidebar">
           {sections.map((s) => (
-            <a key={s} href={`#${s}`} className="writing-post__section-label">
+            <a key={s} href={`#${s.toLowerCase()}`} className="writing-post__section-label">
               {s}
             </a>
           ))}
@@ -61,6 +66,11 @@ export default function WritingPostPage() {
                   {children}
                 </h2>
               ),
+              img: ({ src, alt }) => {
+                const filename = src?.split("/").pop() ?? "";
+                const resolved = contentImages[`../content/images/${filename}`] ?? src;
+                return <img src={resolved} alt={alt ?? ""} className="writing-post__img" />;
+              },
             }}
           >
             {body}
