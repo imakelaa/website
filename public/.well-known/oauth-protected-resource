@@ -1,0 +1,10 @@
+{
+  "resource": "https://itspakhi.com",
+  "authorization_servers": [],
+  "scopes_supported": [],
+  "bearer_methods_supported": [],
+  "resource_documentation": "https://itspakhi.com/.well-known/llms.txt",
+  "resource_policy_uri": "https://itspakhi.com",
+  "protected": false,
+  "note": "This is a public portfolio site. No authentication is required to access any content or agent-discovery endpoints."
+}

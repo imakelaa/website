@@ -1,0 +1,47 @@
+# robots.txt — itspakhi.com
+# RFC 9309 compliant
+
+# Default: allow all crawlers, block photography
+User-agent: *
+Allow: /
+Disallow: /photography
+
+# Search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# AI agents and crawlers — explicitly welcome
+User-agent: GPTBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Agent discovery files
+# /.well-known/agent-card.json  — A2A v1.0.0
+# /.well-known/mcp.json         — MCP Server Card (SEP-2127)
+# /.well-known/ai-agent.json    — Aiia manifest
+# /llms.txt                     — LLM sitemap
+
+Sitemap: https://itspakhi.com/sitemap.xml

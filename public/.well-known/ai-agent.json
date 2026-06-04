@@ -1,0 +1,12 @@
+{
+  "name": "Pakhi Sinha",
+  "description": "Portfolio of Pakhi Sinha — software engineer (MS CS, UC Santa Cruz 2026), Cloudflare alum, security researcher. Shipped production features in Go + TypeScript at Cloudflare. Researches ML, distributed systems, and network security. Photographer and writer. Seeking full-time SWE roles.",
+  "protocols": ["a2a"],
+  "endpoints": {
+    "a2a": "https://itspakhi.com"
+  },
+  "auth": {
+    "type": "none"
+  },
+  "contacts": ["pakhi.asmit@gmail.com", "https://www.linkedin.com/in/pakhi-sinha-/"]
+}

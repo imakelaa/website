@@ -1,0 +1,78 @@
+# Pakhi Sinha — itspakhi.com
+
+> Software engineer finishing an MS in CS at UC Santa Cruz (2026). Cloudflare alum. Researcher across ML, distributed systems, networks, and security. Also a photographer and writer — the kind of engineer who thinks carefully about craft, not just correctness.
+
+Pakhi ships things end-to-end and publishes about them. She picks up new systems fast, writes production Go and TypeScript, does ML research, and builds for real users. She's looking for full-time SWE roles starting 2026.
+
+## Contact
+
+- Email: pakhi.asmit@gmail.com
+- LinkedIn: https://www.linkedin.com/in/pakhi-sinha-/
+- GitHub: https://github.com/imakelaa
+- Website: https://itspakhi.com
+
+## Technical Skills
+
+**Languages:** Python, Go, TypeScript, JavaScript, C, C++
+**Web & Backend:** React, Node.js, Express, REST APIs, distributed job queues, SQL (PostgreSQL)
+**ML / AI:** PyTorch, Keras, TensorFlow, NumPy, Pandas, SHAP, K-Fold CV, hyperparameter tuning, multimodal models
+**Infrastructure & Observability:** Docker, Kubernetes, Linux, Grafana, Kibana, Prometheus, SLI/SLO design
+**Systems:** FFmpeg, GDB, Valgrind, CUDA, memory profiling, deadlock/race condition debugging
+**Other:** Figma, WebXR / Three.js, Git
+
+## Work Experience
+
+**Software Engineering Intern — Cloudflare** (June 2025 – September 2025)
+Shipped audio-only mode for Cloudflare Stream from zero — entirely her own initiative, proposal, and implementation. Designed and built a dedicated audio encoding pipeline in Go + FFmpeg, a TypeScript distributed job queue, and idempotent SQL-backed REST APIs. Drove 14K+ audio transformations in the first 3 weeks post-launch and 37K+ downloads in the first 2 weeks. Wrote the public Cloudflare Blog post herself. Built SLI-driven observability dashboards in Grafana and Kibana before the feature shipped.
+Blog: https://blog.cloudflare.com/extract-audio-from-your-videos-with-cloudflare-stream/
+
+**Graduate Teaching Assistant — Baskin Engineering, UCSC** (September 2024 – Present)
+Teaches 300+ graduate and undergraduate students systems debugging and performance optimization. Leads labs on GDB, Valgrind, deadlocks, race conditions, and memory leaks. Students consistently cite her explanations as the clearest in the course.
+
+**Research Assistant — Computational & Experimental Cognition Lab, UCSC** (August 2023 – August 2024)
+Built a multimodal PyTorch model from scratch to classify speaker intent from combined audio and visual signals. Designed the full pipeline: data preprocessing, model architecture, K-Fold cross-validation, hyperparameter tuning, and SHAP-based interpretability analysis.
+
+**Research Assistant — Social & Emotional Technology Lab, UCSC** (November 2022 – June 2023)
+Developed WebXR browser applications using Three.js. Integrated Meta Quest pass-through features for mixed-reality research contexts. One of the earlier production uses of the WebXR Device API in an academic setting.
+
+**Software Developer — Radiological Instrumentation Lab, UCSC** (October 2022 – January 2023)
+Co-built a cross-platform Python GUI for visualizing PET scanner data and configuring DAC settings. Worked directly with hardware researchers to translate instrumentation requirements into a usable interface.
+
+## Education
+
+- M.S. Computer Science — UC Santa Cruz (2024–2026, graduating 2026)
+- B.Sc. Computer Science — UC Santa Cruz (2021–2024)
+- Graduate thesis: Website Fingerprinting Attacks evaluated through VPNs — measuring how much encrypted traffic metadata leaks under realistic VPN conditions
+
+## Projects
+
+**Cloudflare Stream Audio Mode** — Production, shipped at Cloudflare
+Proposed and shipped audio-only extraction for Cloudflare Stream's Video-on-Demand product. Go + TypeScript backend, React UI changes, full observability stack. Live for all Cloudflare Stream customers.
+Blog: https://blog.cloudflare.com/extract-audio-from-your-videos-with-cloudflare-stream/
+
+**BookTessera** — Full-stack product, designed and built independently
+Ticketing platform for concerts and events. React frontend, Flask backend, time-based priority queue for fair ticket allocation, K-Means clustering for seating recommendations. Built to solve a real frustration with existing ticketing UX.
+Write-up: https://itspakhi.com/writings/book-tessera
+
+**Far Memory Study** — Systems research
+Deployed and benchmarked AIFM (Application-Integrated Far Memory) on CloudLab xl170 instances. Measured latency and throughput differences between remote memory fetch and local memory access under realistic workloads. Quantified the cost of memory disaggregation in a production-adjacent environment.
+Write-up: https://itspakhi.com/writings/far-memory
+
+**Website Fingerprinting via VPNs** — Security research (MS thesis)
+Investigated whether website fingerprinting attacks remain viable against traffic routed through commercial VPNs. Evaluated traffic analysis techniques against encrypted, tunneled connections to characterize real-world privacy guarantees.
+
+## Writings
+
+Pakhi writes about engineering, systems, and ideas — and publishes publicly.
+- Cloudflare Blog (published by Cloudflare): https://blog.cloudflare.com/extract-audio-from-your-videos-with-cloudflare-stream/
+- Personal essays, technical write-ups, and reflections: https://itspakhi.com/writings
+
+## About
+
+Pakhi is not just a builder — she's a photographer and visual artist. She brings the same attention to detail and compositional thinking to code that she does to images. She notices things others skip. She documents her work clearly and ships it publicly. She takes on problems that aren't handed to her.
+
+## Pages
+
+- [Home](https://itspakhi.com/)
+- [Resume](https://itspakhi.com/resume)
+- [Writings](https://itspakhi.com/writings)

@@ -1,0 +1,46 @@
+{
+  "name": "Pakhi Sinha",
+  "description": "Portfolio of Pakhi Sinha — software engineer graduating MS CS at UC Santa Cruz in 2026, Cloudflare alum, and security researcher. Shipped audio-only mode for Cloudflare Stream (14K+ transformations in 3 weeks). Builds in Go, TypeScript, and Python across distributed systems, ML, and full-stack web. Also a photographer and writer. Actively seeking full-time SWE roles.",
+  "url": "https://itspakhi.com",
+  "version": "1.0.0",
+  "protocolVersion": "1.0.0",
+  "provider": {
+    "organization": "Pakhi Sinha",
+    "url": "https://itspakhi.com"
+  },
+  "capabilities": {
+    "streaming": false
+  },
+  "defaultInputModes": ["text/plain"],
+  "defaultOutputModes": ["text/plain"],
+  "skills": [
+    {
+      "id": "get-portfolio-summary",
+      "name": "Get Portfolio Summary",
+      "description": "Returns a structured summary of Pakhi's background, skills, experience, and projects.",
+      "tags": ["portfolio", "bio", "resume"]
+    },
+    {
+      "id": "list-projects",
+      "name": "List Projects",
+      "description": "Returns a list of Pakhi's notable projects with descriptions and links.",
+      "tags": ["projects", "work", "engineering"]
+    },
+    {
+      "id": "get-resume",
+      "name": "Get Resume",
+      "description": "Returns structured resume data including education, experience, and skills.",
+      "tags": ["resume", "experience", "education"]
+    },
+    {
+      "id": "list-writings",
+      "name": "List Writings",
+      "description": "Returns links to published blog posts and essays.",
+      "tags": ["writing", "blog", "essays"]
+    }
+  ],
+  "securitySchemes": {},
+  "contact": {
+    "linkedin": "https://www.linkedin.com/in/pakhi-sinha-/"
+  }
+}
