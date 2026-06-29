@@ -17,6 +17,12 @@
     justify-content: center;
     width: 100%;
     gap: 3rem;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      padding: 7rem 1.25rem 3rem;
+      gap: 2rem;
+    }
   }
 
   &__text {
@@ -32,6 +38,10 @@
     margin: 0 0 0.1em;
     line-height: 1;
     letter-spacing: 0.12em;
+
+    @media (max-width: 768px) {
+      font-size: 3.5rem;
+    }
   }
 
   &__name {
@@ -43,6 +53,10 @@
     margin: 0;
     line-height: 1;
     letter-spacing: -0.02em;
+
+    @media (max-width: 768px) {
+      font-size: 5rem;
+    }
   }
 
   &__collage {
@@ -50,6 +64,15 @@
     position: relative;
     height: 380px;
     margin-top: -90px;
+
+    @media (max-width: 768px) {
+      flex: 0 0 auto;
+      width: 250px;
+      height: 280px;
+      margin-top: 0;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 }
 
@@ -85,4 +108,9 @@
 
   &--0 { top: 0px;   left: 0px;   z-index: 1; width: 300px; img { height: 260px; } &::before { content: 'life1.png'; } }
   &--1 { top: 170px; left: 185px; z-index: 2; width: 300px; img { height: 370px; } &::before { content: 'life2.png'; } }
+
+  @media (max-width: 768px) {
+    &--0 { top: 0px;  left: 0px;  width: 150px; img { height: 130px; } }
+    &--1 { top: 85px; left: 95px; width: 150px; img { height: 175px; } }
+  }
 }

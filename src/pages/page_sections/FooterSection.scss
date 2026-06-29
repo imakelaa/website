@@ -15,6 +15,12 @@
     justify-content: space-between;
     align-items: flex-start;
     gap: 2rem;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+    }
   }
 
   &__linkedin {
@@ -28,6 +34,10 @@
 
   &__right {
     text-align: right;
+
+    @media (max-width: 768px) {
+      text-align: left;
+    }
   }
 
   &__sections-label {
@@ -57,6 +67,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media (max-width: 768px) {
+      padding: 1.5rem 1.25rem 0;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
   }
 
   &__tagline {

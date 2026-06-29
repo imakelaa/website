@@ -11,15 +11,31 @@
   align-items: center;
   padding: 1.2rem 3rem;
 
+  @media (max-width: 768px) {
+    padding: 1rem 1.25rem;
+    justify-content: space-between;
+  }
+
   .navbar__brand {
     position: absolute;
     left: 3rem;
     top: 50%;
     transform: translateY(-50%);
+
+    @media (max-width: 768px) {
+      position: static;
+      transform: none;
+      left: auto;
+      top: auto;
+    }
     font-family: vars.$font-sans;
     font-size: 0.9rem;
     font-weight: 200;
     color: vars.$white;
+
+    @media (max-width: 480px) {
+      font-size: 0.75rem;
+    }
     text-decoration: none;
     letter-spacing: 0.18em;
     text-transform: uppercase;
@@ -52,6 +68,16 @@
       padding: 0.35rem 1.1rem;
       border-radius: 999px;
       transition: background 0.18s;
+
+      @media (max-width: 768px) {
+        padding: 0.3rem 0.7rem;
+        font-size: 0.8rem;
+      }
+
+      @media (max-width: 480px) {
+        padding: 0.22rem 0.5rem;
+        font-size: 0.7rem;
+      }
 
       &:hover {
         background: rgba(255,255,255,0.15);

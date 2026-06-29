@@ -1,5 +1,17 @@
 @use '../variables' as vars;
 
+html {
+  font-size: 100%;
+
+  @media (max-width: 768px) {
+    font-size: 87.5%;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 80%;
+  }
+}
+
 html, body, #root {
   margin: 0;
   padding: 0;
@@ -25,6 +37,10 @@ html, body, #root {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 3rem;
+
+  @media (max-width: 768px) {
+    padding: 0 1.25rem;
+  }
 }
 
 a {
@@ -70,6 +86,12 @@ button {
   height: 100vh;
   overflow: hidden;
 
+  @media (max-width: 768px) {
+    position: relative;
+    height: auto;
+    overflow: visible;
+  }
+
   &:not(:first-child) {
     box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.22);
     border-radius: 14px 14px 0 0;
@@ -79,6 +101,11 @@ button {
   > * {
     height: 100%;
     min-height: unset;
+
+    @media (max-width: 768px) {
+      height: auto;
+      min-height: 100vh;
+    }
   }
 }
 
