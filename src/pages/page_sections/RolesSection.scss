@@ -13,10 +13,18 @@
     position: absolute;
     inset: 0;
     background-image: var(--bg-url, none);
-    background-size: cover;
+    // The background is a framed patch (stitched border), so fit the whole
+    // image to the section instead of cropping it. Desktop slides are 100vh,
+    // close to the image's aspect ratio, so the stretch is barely visible.
+    background-size: 100% 100%;
     background-position: center;
     background-attachment: scroll;
     z-index: 0;
+
+    // Tall stacked mobile layout would distort a stretched image heavily
+    @media (max-width: 768px) {
+      background-size: cover;
+    }
   }
 
   &__inner {
