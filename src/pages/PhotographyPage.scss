@@ -48,4 +48,28 @@
       opacity: 1;
     }
   }
+
+  &__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.18);
+    border: none;
+    color: #fff;
+    font-size: 2.5rem;
+    line-height: 1;
+    padding: 0.4rem 0.7rem;
+    border-radius: 6px;
+    cursor: pointer;
+    z-index: 3;
+    backdrop-filter: blur(4px);
+    transition: background 0.2s;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.32);
+    }
+
+    &--left  { left: 1rem; }
+    &--right { right: 1rem; }
+  }
 }

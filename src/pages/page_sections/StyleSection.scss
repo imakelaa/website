@@ -1,10 +1,8 @@
 @use '../../styles/variables' as vars;
 
 .style-section {
-  background-image: var(--bg-url, none);
-  background-size: cover;
-  background-position: center;
-  background-color: #c8daf0;
+  background: #dbf5ff;
+  background: linear-gradient(292deg, rgba(219, 245, 255, 1) 0%, rgba(1, 63, 133, 1) 63%);
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -12,7 +10,7 @@
   &__inner {
     max-width: 1300px;
     margin: 0 auto;
-    padding: 4rem 3rem;
+    padding: calc(64 * var(--s)) calc(48 * var(--s));
     width: 100%;
     display: flex;
     align-items: flex-start;
@@ -42,7 +40,7 @@
 
   &__headline {
     font-family: 'Helvetica World', Helvetica, Arial, sans-serif;
-    font-size: 2.8rem;
+    font-size: clamp(2rem, calc(45 * var(--s)), 2.8rem);
     font-weight: 700;
     color: #fff;
     line-height: 1.2;
@@ -57,7 +55,7 @@
     font-family: 'Times New Roman', Times, serif;
     font-style: italic;
     font-weight: 400;
-    font-size: 3rem;
+    font-size: clamp(2rem, calc(48 * var(--s)), 3rem);
     color: #000;
   }
 
@@ -98,6 +96,7 @@
     width: 100%;
     display: block;
     object-fit: cover;
+    max-height: calc(560 * var(--s));
 
     @media (max-width: 768px) {
       max-height: 260px;
@@ -105,7 +104,7 @@
   }
 
   &__photo-placeholder {
-    height: 480px;
+    height: calc(480 * var(--s));
     background: #f0f0f0;
 
     @media (max-width: 768px) {
@@ -255,7 +254,7 @@
   }
 
   &__icon {
-    font-size: 5.5rem;
+    font-size: calc(88 * var(--s));
     line-height: 1;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
 

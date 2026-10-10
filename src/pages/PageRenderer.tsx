@@ -18,8 +18,13 @@ export function PageRenderer({ page }: { page: PageConfig }) {
 
   useEffect(() => {
     const update = () => {
-      const idx = Math.floor(window.scrollY / window.innerHeight);
-      const section = idx >= slides.length ? sections.find(s => s.type === "footer") : slides[idx];
+      // Slides vary in height, so find the topmost one that has reached the top
+      const els = document.querySelectorAll<HTMLElement>(".section-slide");
+      let idx = 0;
+      els.forEach((el, i) => { if (el.getBoundingClientRect().top <= 1) idx = i; });
+      const last = els[els.length - 1];
+      const pastSlides = last && last.getBoundingClientRect().bottom <= 0;
+      const section = pastSlides ? sections.find(s => s.type === "footer") : slides[idx];
       document.body.style.background = SECTION_BG[section?.type ?? "home"] ?? "#f5f0e8";
     };
 

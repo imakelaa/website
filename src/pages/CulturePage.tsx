@@ -1,5 +1,5 @@
 import { CultureSection } from "./page_sections/CultureSection";
-import bgCulture from "../assets/bg2.webp";
+import bgCulture from "../assets/BG.jpg";
 
 const cultureData = {
   type: "culture" as const,

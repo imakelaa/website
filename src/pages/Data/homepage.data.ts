@@ -2,8 +2,7 @@ import type { PageConfig } from "../page_types";
 // import sampleImage from "../../assets/sample-image.webp";
 import introImage from "../../assets/intro-img.webp";
 import introImage2 from "../../assets/intro-img2.webp";
-import bgRoles from "../../assets/bg.webp";
-import bgStyle from "../../assets/bg3.webp";
+import bgRoles from "../../assets/BG.jpg";
 import kayak from "../../assets/kayak.webp";
 
 export const homePage: PageConfig = {
@@ -20,8 +19,29 @@ export const homePage: PageConfig = {
       photos: [introImage2, introImage],
     },
     {
+      type: "style",
+      headline: "Building things that matter",
+      highlightedWord: "matter",
+      body: [
+        "Creativity and authenticity is super important to me.",
+        "I spend a lot of time learning and trying new things. Whether it's conceptualizing apps, or just expressing myself.",
+        "I learn by building, testing, and occasionally breaking things in interesting ways. This site is a snapshot of that process.",
+      ],
+      photo: kayak,
+      fakeFiles: ["photography", "writings"],
+      stickyNoteTitle: "This year, it was...",
+      checklist: [
+        // { text: "confidence", checked: true },
+        { text: "reaching out", checked: true },
+        // { text: "plans turning into memories", checked: true },
+        // { text: "showing up for myself", checked: true },
+        { text: "trying new things", checked: true },
+        { text: "build a cyberdeck", checked: false },
+      ],
+    },
+    {
       type: "roles",
-      backgroundPhoto: bgRoles,
+      // backgroundPhoto: bgRoles,
       roles: [
         {
           id: "engineer",
@@ -103,28 +123,6 @@ export const homePage: PageConfig = {
           postUrl: "/writings/far-memory",
           postLabel: "blog post :)!",
         },
-      ],
-    },
-    {
-      type: "style",
-      backgroundPhoto: bgStyle,
-      headline: "Building things that matter",
-      highlightedWord: "matter",
-      body: [
-        "Creativity and authenticity is super important to me.",
-        "I spend a lot of time learning and trying new things. Whether it's conceptualizing apps, or just expressing myself.",
-        "I learn by building, testing, and occasionally breaking things in interesting ways. This site is a snapshot of that process.",
-      ],
-      photo: kayak,
-      fakeFiles: ["photography", "writings"],
-      stickyNoteTitle: "This year, it was...",
-      checklist: [
-        // { text: "confidence", checked: true },
-        { text: "reaching out", checked: true },
-        // { text: "plans turning into memories", checked: true },
-        // { text: "showing up for myself", checked: true },
-        { text: "trying new things", checked: true },
-        { text: "build a cyberdeck", checked: false },
       ],
     },
     {

@@ -1,3 +1,4 @@
+import { useEffect, useRef, type ReactNode } from "react";
 import type { SectionConfig } from "./section_types";
 import { ContactSection } from "./page_sections/ContactSection";
 import { SkillsSection } from "./page_sections/SkillSection";
@@ -28,13 +29,38 @@ function renderSection(section: SectionConfig) {
   }
 }
 
+// A stacked "card". If the section is taller than the window, it sticks by its
+// bottom edge (negative top) so its content scrolls fully into view first.
+function StackedSlide({ index, children }: { index: number; children: ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const update = () => {
+      const top = Math.min(0, window.innerHeight - el.offsetHeight);
+      el.style.setProperty("--stick-top", `${top}px`);
+    };
+    update();
+    const observer = new ResizeObserver(update);
+    observer.observe(el);
+    window.addEventListener("resize", update); // also fires on browser zoom
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", update);
+    };
+  }, []);
+
+  return (
+    <div ref={ref} className="section-slide" style={{ zIndex: index + 1 }}>
+      {children}
+    </div>
+  );
+}
+
 export function SectionRenderer({ section, index }: { section: SectionConfig; index: number }) {
   const rendered = renderSection(section);
   if (!rendered) return null;
   if (section.type === "footer") return rendered;
-  return (
-    <div className="section-slide" style={{ zIndex: index + 1 }}>
-      {rendered}
-    </div>
-  );
+  return <StackedSlide index={index}>{rendered}</StackedSlide>;
 }

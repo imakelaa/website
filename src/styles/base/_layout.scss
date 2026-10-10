@@ -79,16 +79,25 @@ button {
   background-color: #0d1f3c;
 }
 
-// Sticky card stacking — each section slides up over the previous one
+// Scrapbook scale unit — 1px at a 1440×900 window, shrinking/growing with
+// whichever dimension is tighter. Collage pieces are sized as `N * var(--s)`
+// so they keep their arrangement while resizing together.
+:root {
+  --s: clamp(0.55px, min(100vw / 1440, 100vh / 900), 1.25px);
+}
+
+// Sticky card stacking — each section slides up over the previous one.
+// Sections are at least one screen tall but may grow; --stick-top (set in
+// SectionRenderer) pins tall ones by their bottom edge so all content is seen.
 .section-slide {
   position: sticky;
-  top: 0;
-  height: 100vh;
+  top: var(--stick-top, 0px);
+  min-height: 100vh;
   overflow: hidden;
 
   @media (max-width: 768px) {
     position: relative;
-    height: auto;
+    top: 0;
     overflow: visible;
   }
 
@@ -97,15 +106,9 @@ button {
     border-radius: 14px 14px 0 0;
   }
 
-  // Sections fill their sticky container
+  // Sections fill at least the screen, and grow if their content needs it
   > * {
-    height: 100%;
-    min-height: unset;
-
-    @media (max-width: 768px) {
-      height: auto;
-      min-height: 100vh;
-    }
+    min-height: 100vh;
   }
 }
 

@@ -18,7 +18,8 @@ function ScrollToTop() {
 function AppWrapper() {
   const location = useLocation();
   const isHome = location.pathname === "/" || location.pathname === "";
-  const isLightPage = location.pathname.startsWith("/writings");
+  // Writing posts have a light background (navy nav); the /writings index is dark (white nav)
+  const isLightPage = location.pathname.startsWith("/writings/");
 
   useEffect(() => {
     if (location.pathname === "/writings") {

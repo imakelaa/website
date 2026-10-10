@@ -1,12 +1,10 @@
 @use '../../styles/variables' as vars;
 
 .work-section {
-  background: linear-gradient(
-    160deg,
-    vars.$cream 0%,
-    vars.$peach 50%,
-    vars.$dusty-blue 100%
-  );
+  background: #fff7e7;
+  /* https://grabient.com/_gEngEngEngFigFRgFMgJjgJMgJUhNtgckg6x?style=linearGradient&steps=7&angle=90 */
+  // background: linear-gradient(135deg, #e89e68 0.000%, #d5cfaa 16.667%, #7eb3af 33.333%, #519daf 50.000%, #0e7ea7 66.667%, #0763a9 83.333%, #000116 100.000%);
+  
   display: flex;
   align-items: center;
 
@@ -23,11 +21,11 @@
 
   &__headline {
     font-family: vars.$font-sans;
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, calc(40 * var(--s)), 2.5rem);
     font-weight: 700;
     color: #1a1a1a;
     line-height: 1.25;
-    margin: 0 0 3rem;
+    margin: 0 0 calc(48 * var(--s));
     max-width: 480px;
 
     @media (max-width: 768px) {

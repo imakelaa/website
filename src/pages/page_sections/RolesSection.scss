@@ -1,7 +1,7 @@
 @use '../../styles/variables' as vars;
 
 .roles-section {
-  background-color: vars.$cream;
+  background-color: #0d0020;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -22,7 +22,7 @@
   &__inner {
     width: 100%;
     max-width: 1100px;
-    padding: 3rem;
+    padding: calc(48 * var(--s));
     position: relative;
     z-index: 1;
 
@@ -32,22 +32,15 @@
   }
 
   &__headline {
-    position: absolute;
-    top: 2.5rem;
-    left: 3rem;
-    z-index: 2;
     font-family: vars.$font-sans;
-    font-size: 2.8rem;
+    font-size: clamp(1.8rem, calc(45 * var(--s)), 2.8rem);
     font-weight: 700;
-    color: #1a1a1a;
-    margin: 0;
+    color: #fdfdfd;
+    margin: 0 0 clamp(1rem, calc(32 * var(--s)), 2rem);
     line-height: 1.2;
 
     @media (max-width: 768px) {
-      position: static;
-      font-size: 1.8rem;
       margin-top: 2.5rem;
-      margin-bottom: 1rem;
     }
   }
 
@@ -66,7 +59,7 @@
   &__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.6rem;
+    gap: calc(26 * var(--s));
     max-width: 100%;
 
     @media (max-width: 768px) {

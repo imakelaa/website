@@ -32,7 +32,7 @@
 
   &__greeting {
     font-family: 'Helvetica World', Helvetica, Arial, sans-serif;
-    font-size: 8rem;
+    font-size: calc(128 * var(--s));
     font-weight: 100;
     color: vars.$white;
     margin: 0 0 0.1em;
@@ -46,7 +46,7 @@
 
   &__name {
     font-family: vars.$font-serif;
-    font-size: 11rem;
+    font-size: calc(176 * var(--s));
     font-weight: 700;
     font-style: italic;
     color: vars.$mustard;
@@ -60,10 +60,10 @@
   }
 
   &__collage {
-    flex: 0 0 400px;
+    flex: 0 0 calc(400 * var(--s));
     position: relative;
-    height: 380px;
-    margin-top: -90px;
+    height: calc(380 * var(--s));
+    margin-top: calc(-90 * var(--s));
 
     @media (max-width: 768px) {
       flex: 0 0 auto;
@@ -106,8 +106,8 @@
     display: block;
   }
 
-  &--0 { top: 0px;   left: 0px;   z-index: 1; width: 300px; img { height: 260px; } &::before { content: 'life1.png'; } }
-  &--1 { top: 170px; left: 185px; z-index: 2; width: 300px; img { height: 370px; } &::before { content: 'life2.png'; } }
+  &--0 { top: 0;                      left: 0;                      z-index: 1; width: calc(300 * var(--s)); img { height: calc(260 * var(--s)); } &::before { content: 'life1.png'; } }
+  &--1 { top: calc(170 * var(--s)); left: calc(185 * var(--s)); z-index: 2; width: calc(300 * var(--s)); img { height: calc(370 * var(--s)); } &::before { content: 'life2.png'; } }
 
   @media (max-width: 768px) {
     &--0 { top: 0px;  left: 0px;  width: 150px; img { height: 130px; } }
