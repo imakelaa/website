@@ -9,7 +9,7 @@
   align-items: center;
 
   &__inner {
-    max-width: 1200px;
+    max-width: 75rem;
     margin: 0 auto;
     padding: 3rem;
     width: 100%;
@@ -26,7 +26,7 @@
     color: #1a1a1a;
     line-height: 1.25;
     margin: 0 0 calc(48 * var(--s));
-    max-width: 480px;
+    max-width: 30rem;
 
     @media (max-width: 768px) {
       font-size: 1.8rem;
@@ -45,11 +45,15 @@
   background: vars.$white;
   border-radius: 12px;
   padding: 1.5rem;
-  flex: 1 1 260px;
-  max-width: 340px;
+  flex: 1 1 16.25rem;
+  max-width: 21.25rem;
   display: flex;
   flex-direction: column;
   box-shadow: 2px 4px 16px rgba(0,0,0,0.08);
+
+  @media (max-width: 768px) {
+    max-width: 340px;
+  }
 
   &__title {
     font-family: vars.$font-sans;

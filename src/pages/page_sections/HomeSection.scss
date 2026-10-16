@@ -9,7 +9,7 @@
   overflow: hidden;
 
   &__inner {
-    max-width: 1200px;
+    max-width: 75rem;
     margin: 0 auto;
     padding: 4rem 3rem 5rem;
     display: flex;
@@ -85,23 +85,23 @@
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 12px rgba(0,0,0,0.18);
-  width: 190px;
+  width: 11.875rem;
 
   &::before {
     content: 'life.png';
     display: block;
     background: #e5e5e5;
     border-bottom: 1px solid #d0d0d0;
-    padding: 5px 10px;
+    padding: 0.3125rem 0.625rem;
     font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
-    font-size: 13px;
+    font-size: 0.8125rem;
     font-weight: 500;
     color: #333;
   }
 
   img {
     width: 100%;
-    height: 145px;
+    height: 9.0625rem;
     object-fit: cover;
     display: block;
   }

@@ -1,7 +1,10 @@
 @use '../variables' as vars;
 
+// Root type size — every rem on the site scales from this. Desktop sits at 80%
+// of the browser default (12.8px when the default is 16px); percentages keep
+// the reader's own font-size preference and browser zoom working.
 html {
-  font-size: 100%;
+  font-size: 80%;
 
   @media (max-width: 768px) {
     font-size: 87.5%;
@@ -34,7 +37,7 @@ html, body, #root {
 
 // Inner content max-width container (used inside sections)
 .section-inner {
-  max-width: 1200px;
+  max-width: 75rem;
   margin: 0 auto;
   padding: 0 3rem;
 
@@ -116,7 +119,7 @@ button {
 .highlight {
   background-color: vars.$mustard;
   border-radius: 4px;
-  padding: 0 6px;
+  padding: 0 0.375rem;
   display: inline;
 }
 

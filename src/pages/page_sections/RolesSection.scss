@@ -21,7 +21,7 @@
 
   &__inner {
     width: 100%;
-    max-width: 1100px;
+    max-width: 68.75rem;
     padding: calc(48 * var(--s));
     position: relative;
     z-index: 1;
@@ -71,21 +71,21 @@
   // Talavera tile decoration — CSS mosaic blocks
   &__tile {
     position: absolute;
-    width: 100px;
-    height: 100px;
+    width: 6.25rem;
+    height: 6.25rem;
     z-index: 0;
     background: repeating-conic-gradient(
       #c0593a 0% 25%,
       #2a6bbf 25% 50%,
       #e8c84a 50% 75%,
       #fff 75% 100%
-    ) 0 0 / 20px 20px;
+    ) 0 0 / 1.25rem 1.25rem;
     opacity: 0.70;
 
     &--tl { top: 0;    right: 0;   border-radius: 0 0 0 8px; }
-    &--tr { top: 0;    right: 100px; display: none; }
-    &--bl { bottom: 48px; left: 0;  border-radius: 0 8px 8px 0; }
-    &--br { bottom: 48px; left: 100px; display: none; }
+    &--tr { top: 0;    right: 6.25rem; display: none; }
+    &--bl { bottom: 3rem; left: 0;  border-radius: 0 8px 8px 0; }
+    &--br { bottom: 3rem; left: 6.25rem; display: none; }
   }
 
   &__loading-banner {
@@ -107,15 +107,15 @@
   .sticky-note__header {
     background: #e5e5e5;
     border-bottom: 1px solid #d0d0d0;
-    padding: 6px 12px;
+    padding: 0.375rem 0.75rem;
     font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
-    font-size: 13px;
+    font-size: 0.8125rem;
     font-weight: 500;
     color: #000000 !important;
     text-transform: none;
     letter-spacing: 0;
     margin-bottom: 0;
-    padding-bottom: 6px;
+    padding-bottom: 0.375rem;
   }
 
   ul {
