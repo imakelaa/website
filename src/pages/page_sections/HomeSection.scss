@@ -76,27 +76,46 @@
   }
 }
 
-// File-preview style photo cards
+// File-preview style photo cards (draggable)
 .polaroid {
   position: absolute;
-  background: transparent;
-  padding: 0;
-  border: 1px solid #d0d0d0;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
   width: 11.875rem;
+  transition: scale 0.15s ease;
 
-  &::before {
-    content: 'life.png';
-    display: block;
-    background: #e5e5e5;
-    border-bottom: 1px solid #d0d0d0;
-    padding: 0.3125rem 0.625rem;
-    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
-    font-size: 0.8125rem;
-    font-weight: 500;
-    color: #333;
+  // Draggable only with a mouse/trackpad (see useDraggable)
+  @media (hover: hover) and (pointer: fine) {
+    cursor: grab;
+    user-select: none;
+  }
+
+  &--dragging {
+    cursor: grabbing;
+    scale: 1.03;
+
+    .polaroid__frame { box-shadow: 0 12px 32px rgba(0,0,0,0.35); }
+    .hover-note { opacity: 0; }
+  }
+
+  // The visible card; clips the image to rounded corners
+  &__frame {
+    background: transparent;
+    border: 1px solid #d0d0d0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    transition: box-shadow 0.15s ease;
+
+    &::before {
+      content: 'life.png';
+      display: block;
+      background: #e5e5e5;
+      border-bottom: 1px solid #d0d0d0;
+      padding: 0.3125rem 0.625rem;
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: #333;
+    }
   }
 
   img {
@@ -104,10 +123,11 @@
     height: 9.0625rem;
     object-fit: cover;
     display: block;
+    pointer-events: none;
   }
 
-  &--0 { top: 0;                      left: 0;                      z-index: 1; width: calc(300 * var(--s)); img { height: calc(260 * var(--s)); } &::before { content: 'life1.png'; } }
-  &--1 { top: calc(170 * var(--s)); left: calc(185 * var(--s)); z-index: 2; width: calc(300 * var(--s)); img { height: calc(370 * var(--s)); } &::before { content: 'life2.png'; } }
+  &--0 { top: 0;                      left: 0;                      width: calc(300 * var(--s)); img { height: calc(260 * var(--s)); } .polaroid__frame::before { content: 'life1.png'; } }
+  &--1 { top: calc(170 * var(--s)); left: calc(185 * var(--s)); width: calc(300 * var(--s)); img { height: calc(370 * var(--s)); } .polaroid__frame::before { content: 'life2.png'; } }
 
   @media (max-width: 768px) {
     &--0 { top: 0px;  left: 0px;  width: 150px; img { height: 130px; } }

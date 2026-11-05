@@ -2,7 +2,7 @@ import type { PageConfig } from "../page_types";
 // import sampleImage from "../../assets/sample-image.webp";
 import introImage from "../../assets/intro-img.webp";
 import introImage2 from "../../assets/intro-img2.webp";
-import bgRoles from "../../assets/BG.jpg";
+// import bgRoles from "../../assets/BG.jpg";
 import kayak from "../../assets/kayak.webp";
 
 export const homePage: PageConfig = {
@@ -17,15 +17,16 @@ export const homePage: PageConfig = {
       greeting: "Meet",
       name: "Pakhi",
       photos: [introImage2, introImage],
+      stickyNotes: ["placeholder note for life1 ✏️", "placeholder note for life2 ✏️"],
     },
     {
       type: "style",
       headline: "Building things that matter",
       highlightedWord: "matter",
       body: [
-        "Creativity and authenticity is super important to me.",
+        "Creativity and authenticity are super important to me.",
         "I spend a lot of time learning and trying new things. Whether it's conceptualizing apps, or just expressing myself.",
-        "I learn by building, testing, and occasionally breaking things in interesting ways. This site is a snapshot of that process.",
+        "I learn by building, testing, and occasionally breaking things in interesting ways. This site is also a snapshot of that process.",
       ],
       photo: kayak,
       fakeFiles: ["photography", "writings"],

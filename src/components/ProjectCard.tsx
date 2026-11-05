@@ -1,9 +1,10 @@
+import type { ReactNode } from "react";
 import "../styles/components/ProjectCard.scss";
 
 type ProjectCardProps = {
   title: string;
   image: string;
-  children: any;
+  children: ReactNode;
 };
 
 export function ProjectCard({ title, image, children }: ProjectCardProps) {

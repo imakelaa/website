@@ -14,6 +14,7 @@ export function StyleSection({ headline, highlightedWord, body, photo, fakeFiles
           <h2 className="style-section__headline">
             {parts[0]}
             <span className="highlight style-section__serve">{highlightedWord}</span>
+            {/* <span className="style-section__serve">{highlightedWord}</span> */}
             {parts[1]}
           </h2>
           {body.map((p, i) => <p key={i} className="style-section__body">{p}</p>)}
