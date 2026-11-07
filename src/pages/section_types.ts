@@ -18,7 +18,8 @@ export interface HomeSection {
   greeting: string;
   name: string;
   photos: string[];
-  stickyNotes?: string[]; // hover sticky note per item, same order as `photos`
+  // Hover sticky notes keyed by spot: "intro" (under the name), "life1", "life2", … (photos, 1-based)
+  stickyNotes?: Record<string, string>;
 }
 
 export type RoleBullet = string | { text: string; href: string; linkText?: string };

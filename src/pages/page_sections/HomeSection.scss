@@ -26,6 +26,7 @@
   }
 
   &__text {
+    position: relative; // anchors the HoverNote under "Meet Pakhi"
     flex: 0 0 auto;
     text-align: center;
   }

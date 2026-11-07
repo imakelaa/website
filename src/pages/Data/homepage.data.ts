@@ -17,7 +17,11 @@ export const homePage: PageConfig = {
       greeting: "Meet",
       name: "Pakhi",
       photos: [introImage2, introImage],
-      stickyNotes: ["placeholder note for life1 ✏️", "placeholder note for life2 ✏️"],
+      stickyNotes: {
+        intro: "Hi :)!",
+        life1: "Draggable polaroids.",
+        life2: "Wanted to make this website scrapbook-ish.",
+      },
     },
     {
       type: "style",

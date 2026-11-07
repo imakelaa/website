@@ -42,6 +42,7 @@ export function HomeSection({ greeting, name, photos, stickyNotes }: HomeSection
         <div className="home-section__text">
           <p className="home-section__greeting">{greeting}</p>
           <h1 className="home-section__name">{name}</h1>
+          <HoverNote text={stickyNotes?.intro} />
         </div>
         <div className="home-section__collage">
           {photos.map((src, i) => (
@@ -49,7 +50,7 @@ export function HomeSection({ greeting, name, photos, stickyNotes }: HomeSection
               key={i}
               src={src}
               index={i}
-              note={stickyNotes?.[i]}
+              note={stickyNotes?.[`life${i + 1}`]}
               zIndex={stack.indexOf(i) + 1}
               boundsRef={sectionRef}
               onGrab={() => bringToFront(i)}
