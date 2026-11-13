@@ -101,12 +101,13 @@
 
 // Sticky note card overrides for this section — file-preview style header bar
 .roles-section__card {
+  background: #eeebe5; // toned-down white (softer than pure #fff)
   padding: 0;
   overflow: hidden;
 
   .sticky-note__header {
-    background: #e5e5e5;
-    border-bottom: 1px solid #d0d0d0;
+    background: #dedad3;
+    border-bottom: 1px solid #ccc7bf;
     padding: 0.375rem 0.75rem;
     font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
     font-size: 0.8125rem;

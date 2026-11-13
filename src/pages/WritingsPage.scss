@@ -1,15 +1,16 @@
 @use '../styles/variables' as vars;
 
+
 .writings-page {
   min-height: 100vh;
-  background: #63637e;
+  background: var(--w-bg);
   padding: 5rem 2rem 2rem;
 
   &__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.2rem;
-    max-width: 87.5rem;
+    max-width: 72rem;
     margin: 0 auto;
 
     @media (max-width: 768px) {
@@ -23,8 +24,9 @@
   flex-direction: column;
   border-radius: 12px;
   overflow: hidden;
-  background: #fff;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  background: var(--w-surface);
+  border: 1px solid var(--w-border);
+  box-shadow: 0 2px 12px var(--w-shadow);
   text-decoration: none;
   color: inherit;
   transition: box-shadow 0.2s ease, transform 0.2s ease;
@@ -34,14 +36,14 @@
     cursor: pointer;
 
     &:hover {
-      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.14);
+      box-shadow: 0 6px 24px var(--w-shadow-hover);
       transform: translateY(-2px);
     }
   }
 
   // Plain color preview (no image/text)
   &__preview {
-    height: 21.25rem;
+    height: 17rem;
     width: 100%;
     flex-shrink: 0;
 
@@ -59,7 +61,7 @@
 
   // Text-only preview: title + excerpt on colored bg
   &__preview--text {
-    height: 17.5rem;
+    height: 14rem;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -78,7 +80,7 @@
     font-family: vars.$font-sans;
     font-size: 1.15rem;
     font-weight: 700;
-    color: #111;
+    color: var(--w-text);
     line-height: 1.3;
     margin: 0;
     flex-shrink: 0;
@@ -86,7 +88,7 @@
 
   &__preview-img {
     width: 100%;
-    height: 13.75rem;
+    height: 11rem;
     object-fit: cover;
     display: block;
     flex-shrink: 0;
@@ -98,7 +100,7 @@
 
   &__preview-text {
     padding: 1rem 1.2rem 0.8rem;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid var(--w-border);
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -116,7 +118,7 @@
   &__excerpt {
     font-family: vars.$font-sans;
     font-size: 0.85rem;
-    color: #444;
+    color: var(--w-text-muted);
     line-height: 1.6;
     margin: 0;
     display: -webkit-box;
@@ -125,7 +127,7 @@
     overflow: hidden;
 
     &--on-bg {
-      color: #333;
+      color: var(--w-text-muted);
     }
   }
 
@@ -144,7 +146,7 @@
     font-family: vars.$font-sans;
     font-size: 0.9rem;
     font-weight: 500;
-    color: #111;
+    color: var(--w-text);
     line-height: 1.4;
     white-space: nowrap;
     overflow: hidden;
@@ -152,14 +154,14 @@
   }
 
   &__category {
-    color: #888;
+    color: var(--w-text-subtle);
     font-weight: 400;
   }
 
   &__year {
     font-family: vars.$font-sans;
     font-size: 0.85rem;
-    color: #888;
+    color: var(--w-text-subtle);
     white-space: nowrap;
     flex-shrink: 0;
   }

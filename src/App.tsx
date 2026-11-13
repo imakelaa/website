@@ -8,6 +8,7 @@ import WritingPostPage from "./pages/WritingPostPage";
 import PhotographyPage from "./pages/PhotographyPage";
 import "./styles/base/_layout.scss";
 import { useEffect } from "react";
+import { useTheme } from "./components/useTheme";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -18,11 +19,11 @@ function ScrollToTop() {
 function AppWrapper() {
   const location = useLocation();
   const isHome = location.pathname === "/" || location.pathname === "";
-  // Writing posts have a light background (navy nav); the /writings index is dark (white nav)
-  const isLightPage = location.pathname.startsWith("/writings/");
-
+  const isWritings = location.pathname.startsWith("/writings");
+  const { theme, toggle } = useTheme(isWritings);
   useEffect(() => {
-    if (location.pathname === "/writings") {
+    // /writings index and posts share a light/dark theme (see useTheme)
+    if (isWritings) {
       document.body.className = "page-writings";
     } else if (location.pathname.startsWith("/contents")) {
       document.body.className = "page-contents";
@@ -31,13 +32,17 @@ function AppWrapper() {
     } else {
       document.body.className = "page-default";
     }
-  }, [location.pathname]);
+  }, [location.pathname, isWritings]);
 
   return (
     <>
       <ScrollToTop />
       <div style={{ position: isHome ? "relative" : "static" }}>
-        <NavBar dark={isLightPage} />
+        <NavBar
+          // light mode needs dark navbar text; dark mode keeps it white
+          dark={isWritings && theme === "light"}
+          {...(isWritings && { theme, onToggleTheme: toggle })}
+        />
       </div>
       <main className={isHome ? "" : "content-wrapper"}>
         <Routes>

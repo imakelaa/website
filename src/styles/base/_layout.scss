@@ -70,8 +70,32 @@ button {
   background-color: vars.$sidequests-background-color;
 }
 
+// Writings pages: standard light/dark palette, switched by `data-theme` on <body>
+// (set by useTheme in App.tsx). Pages below read these variables.
 .page-writings {
-  background-color: #f0eeeb;
+  --w-bg: #ffffff;
+  --w-surface: #f5f5f7;
+  --w-border: rgba(0, 0, 0, 0.08);
+  --w-text: #111111;
+  --w-text-muted: #555555;
+  --w-text-subtle: #888888;
+  --w-shadow: rgba(0, 0, 0, 0.08);
+  --w-shadow-hover: rgba(0, 0, 0, 0.14);
+
+  background-color: var(--w-bg);
+  color: var(--w-text);
+  transition: background-color 0.2s ease, color 0.2s ease;
+
+  &[data-theme="dark"] {
+    --w-bg: #121212;
+    --w-surface: #1e1e1e;
+    --w-border: rgba(255, 255, 255, 0.08);
+    --w-text: #ececec;
+    --w-text-muted: #b3b3b3;
+    --w-text-subtle: #8a8a8a;
+    --w-shadow: rgba(0, 0, 0, 0.4);
+    --w-shadow-hover: rgba(0, 0, 0, 0.6);
+  }
 }
 
 .page-contents {
