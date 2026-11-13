@@ -38,8 +38,6 @@ export const homePage: PageConfig = {
       checklist: [
         // { text: "confidence", checked: true },
         { text: "reaching out", checked: true },
-        // { text: "plans turning into memories", checked: true },
-        // { text: "showing up for myself", checked: true },
         { text: "trying new things", checked: true },
         { text: "build a cyberdeck", checked: false },
       ],
