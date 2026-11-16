@@ -7,6 +7,7 @@ export type SectionConfig =
   | HomeSection
   | RolesSection
   | WorkSection
+  | PortfolioSection
   | CultureSection
   | StyleSection
   | FooterSection;
@@ -54,6 +55,52 @@ export interface WorkSection {
   headline: string;
   highlightedWord: string;
   cards: WorkCard[];
+}
+
+// ── Portfolio: "I am a ___" role picker + grid of work blocks ─────
+
+export interface PortfolioRole {
+  id: string;     // referenced by PortfolioBlock.roles
+  label: string;  // chip text + the word typed into the headline
+}
+
+export interface PortfolioLink {
+  label: string;
+  href: string;               // starts with "/" → in-site route, otherwise opens a new tab
+  kind?: "feature" | "blog";  // buttons always render [feature] [blog], whatever order they're listed in
+  style?: "primary" | "dark"; // yellow vs black button (default: primary for the first button shown)
+}
+
+// The illustration at the top of a block. Add a new `kind` here + a case in
+// PortfolioVisual to support a new kind of illustration.
+export type PortfolioVisual =
+  | { kind: "image"; src: string; alt: string }
+  | { kind: "placeholder"; label: string }
+  | { kind: "badge"; title: string; caption?: string; src?: string }            // viewfinder; `src` shows a preview image instead of the title ring
+  | { kind: "bars"; series: { label: string; values: number[]; color?: "dark" | "purple" | "yellow" }[] }
+  | { kind: "meter"; rows: { label: string; value: number; color?: "dark" | "purple" | "yellow" }[] } // value 0–1
+  | { kind: "clusters"; groups: { label: string; count: number; color?: "dark" | "purple" | "yellow" }[] }
+  | { kind: "gallery"; items: { label: string; src?: string }[] }
+  | { kind: "writings"; limit?: number };                                       // list pulled from writings.data
+
+export interface PortfolioBlock {
+  id: string;
+  title: string;
+  roles: string[];        // role ids → used to highlight the block when its role is picked
+  date?: string;          // year shown in the card header, e.g. "2025"
+  size?: "lg" | "md" | "sm"; // desktop width: 7 / 5 / 4 of 12 columns (default "sm")
+  visual?: PortfolioVisual;
+  description?: string;
+  links?: PortfolioLink[];
+  href?: string;          // makes the whole block clickable (buttons still work on their own)
+}
+
+export interface PortfolioSection {
+  type: "portfolio";
+  headline?: string;      // defaults to "Work"
+  prompt?: string;        // line under the chips
+  roles: PortfolioRole[];
+  blocks: PortfolioBlock[];
 }
 
 export interface CultureSection {

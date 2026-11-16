@@ -1,60 +1,7 @@
 import { Link } from "react-router-dom";
 import "./WritingsPage.scss";
+import { writings, mdPreview } from "./Data/writings.data";
 
-// Load all markdown files eagerly so we can extract previews at render time
-const markdownFiles = import.meta.glob("../content/writings/*.md", {
-  query: "?raw",
-  import: "default",
-  eager: true,
-}) as Record<string, string>;
-
-function extractTitle(raw: string): string {
-  const line = raw.split("\n").find((l) => l.startsWith("# "));
-  return line ? line.replace(/^# /, "").trim() : "";
-}
-
-function extractExcerpt(raw: string): string {
-  const paragraphs = raw
-    .split(/\n\n+/)
-    .map((b) => b.trim())
-    .filter((b) => b && !b.startsWith("#"));
-  return paragraphs[0] ?? "";
-}
-
-function mdPreview(slug: string) {
-  const key = `../content/writings/${slug}.md`;
-  const raw = markdownFiles[key];
-  if (!raw) return null;
-  return { title: extractTitle(raw), excerpt: extractExcerpt(raw) };
-}
-
-interface Writing {
-  category: string;
-  year: string;
-  slug?: string;
-  url?: string;
-  image?: string;
-  author?: string;
-  excerpt?: string;
-  title?: string;
-}
-
-const writings: Writing[] = [
-  {
-    category: "Engineering",
-    year: "2025",
-    url: "https://blog.cloudflare.com/extract-audio-from-your-videos-with-cloudflare-stream/",
-    image: "https://cf-assets.www.cloudflare.com/zkvhlag99gkb/3Umt4dEGlo8qRckqLiYpE/f7e9916ea2b3db1fdba936024a9de7f6/BLOG-2990-hero.png",
-    author: "Pakhi Sinha",
-    title: "Extract audio from your videos with Cloudflare Stream",
-    excerpt: "Cloudflare Stream is expanding its capabilities beyond video processing. The platform now enables developers to seamlessly extract audio from videos through a unified system designed to simplify media workflows — because processing entire video files just to access audio is slow, costly, and complex.",
-  },
-  { category: "Essay",    year: "2026", slug: "telephoto" },
-  { category: "Research", year: "2025", slug: "far-memory" },
-  // { category: "Essay",    year: "2024", slug: "working-in-tech" },
-  // { category: "Essay",    year: "2025", slug: "aesthetic" },
-  { category: "Project",  year: "2024", slug: "book-tessera" },
-];
 
 export default function WritingsPage() {
   return (

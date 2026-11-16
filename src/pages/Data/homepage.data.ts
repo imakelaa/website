@@ -4,6 +4,7 @@ import introImage from "../../assets/intro-img.webp";
 import introImage2 from "../../assets/intro-img2.webp";
 // import bgRoles from "../../assets/BG.jpg";
 import kayak from "../../assets/kayak.webp";
+import telephotoPreview from "../../assets/telephoto-preview.jpg";
 
 export const homePage: PageConfig = {
   title: "Home",
@@ -43,88 +44,118 @@ export const homePage: PageConfig = {
       ],
     },
     {
-      type: "roles",
-      // backgroundPhoto: bgRoles,
+      type: "portfolio",
+      prompt: "A few windows into what I'm building, researching, making and writing.",
+      // Order sets the numbers: engineer = 01, researcher = 02, …
       roles: [
-        {
-          id: "engineer",
-          label: "Software Engineer",
-          bullets: [
-            "building what makes life easier",
-            "Go, TypeScript, Python, and more",
-            "loves a good config. trying to be tmux and vim proficient :)",
-          ],
-        },
-        {
-          id: "researcher",
-          label: "Researcher",
-          bullets: [
-            "MS in Computer Science, UC Santa Cruz",
-            "Thesis: Website Fingerprinting Attacks evaluated through VPNs",
-            "interested in ml, networks, systems, security, and privacy",
-            "lots of media work previously, VR, video, audio, FFmpeg, you name it",
-          ],
-        },
-        {
-          id: "artist",
-          label: "Artist",
-          bullets: [
-            "collage and photography",
-            "painting (gouache, acrylics, chalk) ",
-            "visual thinker",
-          ],
-        },
-        {
-          id: "writer",
-          label: "Writer",
-          bullets: [
-            "published on the Cloudflare Blog!",
-            "technical writing, philosophy, and media",
-            { text: "check out my writings ", href: "/writings", linkText: "here" },
-          ],
-        },
+        { id: "engineer",   label: "software engineer" },
+        { id: "researcher", label: "researcher" },
+        { id: "artist",     label: "artist" },
+        { id: "writer",     label: "writer" },
       ],
-    },
-    {
-      type: "work",
-      headline: "Read about some work I've done",
-      highlightedWord: "some work",
-      cards: [
+      // Add new work here — each entry renders as one block, in this order.
+      blocks: [
         {
           id: "cloudflare",
           title: "Cloudflare Stream — Audio Mode",
-          bullets: [
-            "Introduced audio-only mode to Cloudflare Stream",
-            "API endpoints in Go/Typescript, React UI",
-            "Monitoring with Kibana, Grafana, Prometheus",
+          roles: ["engineer", "writer"],
+          date: "2025",
+          size: "lg",
+          href: "https://blog.cloudflare.com/extract-audio-from-your-videos-with-cloudflare-stream/",
+          visual: {
+            kind: "image",
+            src: "https://cf-assets.www.cloudflare.com/zkvhlag99gkb/3Umt4dEGlo8qRckqLiYpE/f7e9916ea2b3db1fdba936024a9de7f6/BLOG-2990-hero.png",
+            alt: "Cloudflare Stream audio extraction blog header",
+          },
+          description: "Shipped audio-only mode for Cloudflare Stream: Go/TypeScript API endpoints, a React UI, monitoring with Kibana, Grafana and Prometheus.",
+          links: [
+            { label: "read the blog", kind: "blog", href: "https://blog.cloudflare.com/extract-audio-from-your-videos-with-cloudflare-stream/" },
+            { label: "see the feature", kind: "feature", href: "https://www.cloudflare.com/products/cloudflare-stream/" },
           ],
-          blogUrl: "https://blog.cloudflare.com/extract-audio-from-your-videos-with-cloudflare-stream/",
-          featureUrl: "https://www.cloudflare.com/products/cloudflare-stream/",
         },
         {
-          id: "booktessera",
-          title: "BookTessera",
-          bullets: [
-            "Ticketing platform for concerts and events",
-            "React + Flask full-stack app",
-            "Time-based priority queue with K-Means clustering",
-            "Tradeoffs between strict ordering and user experience",
+          id: "telephoto",
+          title: "Telephoto",
+          roles: ["engineer", "writer"],
+          date: "2026",
+          size: "md",
+          href: "https://telephoto.pasinha.workers.dev/",
+          visual: { kind: "badge", title: "Telephoto", caption: "working on it", src: telephotoPreview },
+          description: "A Photobooth-inspired web app. Engineering dive blog in progress.",
+          links: [
+            { label: "try the app", kind: "feature", href: "https://telephoto.pasinha.workers.dev/" },
+            { label: "engineering dive blog", kind: "blog", href: "/writings/telephoto" },
           ],
-          postUrl: "/writings/book-tessera",
-          postLabel: "read my annoyingly detailed blog post!",
+        },
+        {
+          id: "vpn-thesis",
+          title: "Is Your VPN Getting You Blocked?",
+          roles: ["researcher"],
+          date: "2026",
+          visual: {
+            kind: "bars",
+            series: [
+              { label: "direct",  values: [3, 9, 5, 10, 4, 8, 2, 9, 6, 10, 3, 7, 9, 4, 8, 10, 5, 9, 3, 8, 6, 10, 4, 9], color: "dark" },
+              { label: "via VPN", values: [7, 7, 8, 7, 7, 8, 7, 7, 7, 8, 8, 7, 7, 8, 7, 7, 8, 7, 7, 7, 8, 7, 7, 8], color: "purple" },
+            ],
+          },
+          description: "MS thesis at UC Santa Cruz: website fingerprinting attacks, evaluated through VPNs.",
+          links: [{ label: "slides", kind: "feature", href: "/slides/vpn-thesis.pdf" }],
         },
         {
           id: "far-memory",
           title: "Study on Far Memory",
-          bullets: [
-            "Analyzed AIFM (Application-Integrated Far Memory)",
-            "Deployed + benchmarked xl170 instances on CloudLab",
-            "Quantified latency/throughput of remote memory fetch vs local access",
+          roles: ["researcher"],
+          date: "2025",
+          visual: {
+            kind: "meter",
+            rows: [
+              { label: "local access", value: 0.3,  color: "dark" },
+              { label: "remote fetch", value: 1,    color: "purple" },
+            ],
+          },
+          description: "Benchmarked AIFM on CloudLab xl170 nodes: remote fetch vs. local access.",
+          links: [
+            { label: "blog post", kind: "blog", href: "/writings/far-memory" },
+            { label: "paper", kind: "feature", href: "https://www.usenix.org/system/files/osdi20-ruan.pdf" },
           ],
-          featureUrl: "https://www.usenix.org/system/files/osdi20-ruan.pdf",
-          featureLabel: "link to paper (not mine, but I promise it's good!)",
-          postUrl: "/writings/far-memory",
-          postLabel: "blog post :)!",
+        },
+        {
+          id: "booktessera",
+          title: "BookTessera",
+          roles: ["engineer"],
+          date: "2024",
+          visual: {
+            kind: "clusters",
+            groups: [
+              { label: "cluster 1", count: 3, color: "dark" },
+              { label: "cluster 2", count: 2, color: "purple" },
+              { label: "cluster 3", count: 3, color: "yellow" },
+            ],
+          },
+          description: "Concert ticketing in React + Flask, with a K-Means priority queue.",
+          links: [{ label: "read the post", kind: "blog", href: "/writings/book-tessera" }],
+        },
+        {
+          id: "contact-sheet",
+          title: "Contact sheet",
+          roles: ["artist"],
+          size: "lg",
+          visual: {
+            kind: "gallery",
+            // add `src: someImport` to any item to replace the striped placeholder
+            items: [{ label: "photo" }, { label: "collage" }, { label: "gouache" }, { label: "chalk" }],
+          },
+          description: "Collage, photography, painting in gouache, acrylics and chalk.",
+          links: [{ label: "photography", href: "/photography", style: "dark" }],
+        },
+        {
+          id: "writing",
+          title: "Writing",
+          roles: ["writer"],
+          size: "md",
+          visual: { kind: "writings" }, // pulls from Data/writings.data.ts
+          links: [{ label: "all writing", href: "/writings", style: "dark" }],
         },
       ],
     },

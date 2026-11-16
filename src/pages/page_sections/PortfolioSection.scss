@@ -1,0 +1,414 @@
+@use '../../styles/variables' as vars;
+
+// Palette pulled from webiter.pdf
+$bg:        #0b0021;
+$ink:       #141018;
+$card:      #e7e7e3;
+$card-head: #dcd9d5;
+$card-line: #ccc7bf;
+$panel:     #f3f2ee;
+$muted:     #3d3a40;
+$purple:    #6e62a6;
+$yellow:    vars.$mustard;
+
+.portfolio-section {
+  background: $bg;
+  color: #fdfdfd;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+
+  &__inner {
+    width: 100%;
+    max-width: 75rem;
+    padding: clamp(2.5rem, calc(72 * var(--s)), 5rem) clamp(1rem, calc(64 * var(--s)), 4rem);
+
+    @media (max-width: 768px) {
+      padding: 4.5rem 1rem 2.5rem; // top room for the navbar
+    }
+  }
+
+  &__headline {
+    font-family: vars.$font-sans;
+    font-size: clamp(2rem, calc(52 * var(--s)), 3.25rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin: 0 0 1.25rem;
+  }
+
+  &__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  &__prompt {
+    font-family: vars.$font-sans;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 1.25rem 0 2.5rem;
+
+    @media (max-width: 768px) { margin-bottom: 1.5rem; }
+  }
+
+  // 12-column grid; block sizes span 7 / 5 / 4. `dense` backfills gaps so
+  // blocks of mixed sizes still pack tightly as more get added.
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-auto-flow: row dense;
+    gap: 1rem;
+
+    @media (max-width: 900px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    @media (max-width: 600px) {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+}
+
+// ── Role chips ──────────────────────────────────────────────────
+.portfolio-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: transparent;
+  color: #fdfdfd;
+  font-family: vars.$font-sans;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+
+  &__num {
+    font-family: vars.$font-mono;
+    font-size: 0.7rem;
+    opacity: 0.6;
+  }
+
+  &:hover { border-color: rgba(255, 255, 255, 0.45); }
+
+  &.is-active {
+    background: $yellow;
+    border-color: $yellow;
+    color: $ink;
+  }
+
+  &:focus-visible { outline: 2px solid $yellow; outline-offset: 2px; }
+}
+
+// ── Block (card) ────────────────────────────────────────────────
+.portfolio-block {
+  grid-column: span 4;
+  display: flex;
+  flex-direction: column;
+  background: $card;
+  color: $ink;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: opacity 0.25s, filter 0.25s;
+
+  &--lg { grid-column: span 7; }
+  &--md { grid-column: span 5; }
+
+  @media (max-width: 900px) {
+    grid-column: span 1;
+    &--lg { grid-column: span 2; }
+    &--md { grid-column: span 1; }
+  }
+  @media (max-width: 600px) {
+    &, &--lg, &--md { grid-column: span 1; }
+  }
+
+  // ── Whole-card link ("stretched link") ──
+  // The title link's ::after covers the entire card, so clicking anywhere
+  // follows it. Real buttons/links are lifted above that overlay.
+  &.is-linked {
+    position: relative;
+    transition: opacity 0.25s, filter 0.25s, transform 0.2s, box-shadow 0.2s;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+    }
+    &:hover .portfolio-block__title { text-decoration: underline; text-underline-offset: 2px; }
+    &:focus-within { outline: 2px solid $yellow; outline-offset: 3px; }
+
+    // z-index order: visuals (auto/1) < card overlay (2) < real links (3)
+    .portfolio-btn,
+    .pv-writings a {
+      position: relative;
+      z-index: 3;
+    }
+  }
+
+  &__cover {
+    color: inherit;
+    text-decoration: none;
+    &:focus-visible { outline: none; } // ring is drawn on the card via :focus-within
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+    }
+  }
+
+  &.is-dimmed {
+    opacity: 0.35;
+    filter: grayscale(0.6);
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    background: $card-head;
+    border-bottom: 1px solid $card-line;
+  }
+
+  &__title {
+    font-family: vars.$font-sans;
+    font-size: 0.8125rem;
+    font-weight: 500;
+  }
+
+  &__body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+
+  // Big-visual blocks (lg / md) let the illustration grow to fill the card
+  &--lg &__visual,
+  &--md &__visual { flex: 1; display: flex; flex-direction: column; }
+
+  &__desc {
+    margin: 0;
+    font-family: vars.$font-sans;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: $muted;
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto; // pin buttons to the bottom of the card
+  }
+}
+
+.portfolio-btn {
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 3px;
+  font-family: vars.$font-sans;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: filter 0.15s;
+
+  &--primary { background: $yellow; color: $ink; }
+  &--dark    { background: $ink;    color: #fff; }
+
+  &:hover { filter: brightness(0.92); }
+}
+
+// ── Shared bits for visuals ─────────────────────────────────────
+.pv-meta,
+.pv-label {
+  font-family: vars.$font-mono;
+  font-size: 0.65rem;
+  color: $muted;
+  white-space: nowrap;
+}
+
+.pv-fill--dark   { background: $ink; }
+.pv-fill--purple { background: $purple; }
+.pv-fill--yellow { background: $yellow; }
+
+.pv-panel {
+  background: $panel;
+  border: 1px solid $card-line;
+  border-radius: 4px;
+  padding: 0.6rem 0.75rem;
+}
+
+// image
+.pv-image {
+  width: 100%;
+  height: 100%;
+  min-height: 12rem;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+  flex: 1;
+}
+
+// placeholder — diagonal stripes
+.pv-placeholder {
+  flex: 1;
+  min-height: 12rem;
+  display: grid;
+  place-items: center;
+  border-radius: 4px;
+  background: repeating-linear-gradient(135deg, #2a2730 0 14px, #322f38 14px 28px);
+  span { font-family: vars.$font-mono; font-size: 0.7rem; color: #cfcbd6; text-align: center; padding: 1rem; }
+}
+
+// badge — viewfinder with corner marks
+.pv-badge {
+  position: relative;
+  flex: 1;
+  min-height: 14rem;
+  aspect-ratio: 1 / 1;
+  max-height: 100%;
+  display: grid;
+  place-items: center;
+  background: $ink;
+  border-radius: 4px;
+
+  @media (max-width: 600px) { aspect-ratio: 16 / 10; min-height: 0; }
+
+  overflow: hidden;
+
+  &__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__corner {
+    position: absolute;
+    z-index: 1;
+    width: 0.9rem;
+    height: 0.9rem;
+    border: 0 solid $yellow;
+    &--tl { top: 0.6rem;    left: 0.6rem;  border-top-width: 2px;    border-left-width: 2px; }
+    &--tr { top: 0.6rem;    right: 0.6rem; border-top-width: 2px;    border-right-width: 2px; }
+    &--bl { bottom: 0.6rem; left: 0.6rem;  border-bottom-width: 2px; border-left-width: 2px; }
+    &--br { bottom: 0.6rem; right: 0.6rem; border-bottom-width: 2px; border-right-width: 2px; }
+  }
+
+  &__ring {
+    width: min(55%, 11rem);
+    padding: 0.75rem;
+    aspect-ratio: 1;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+  }
+
+  &__title {
+    font-family: vars.$font-sans;
+    font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #fff;
+  }
+
+  &__caption { font-family: vars.$font-mono; font-size: 0.6rem; color: #cfcbd6; }
+}
+
+// bars — mini bar chart per series
+.pv-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+
+  &__row { display: flex; align-items: flex-end; gap: 0.75rem; }
+  .pv-label { width: 3.25rem; flex-shrink: 0; }
+
+  &__plot {
+    flex: 1;
+    height: 1.6rem;
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+  }
+
+  &__bar { flex: 1; min-height: 2px; }
+}
+
+// meter — horizontal progress bars
+.pv-meter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+
+  &__row { display: flex; align-items: center; gap: 0.75rem; }
+  .pv-label { width: 5rem; flex-shrink: 0; }
+  &__track { flex: 1; height: 0.5rem; }
+  &__fill { display: block; height: 100%; }
+}
+
+// clusters — groups of squares
+.pv-clusters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.25rem;
+
+  &__group { display: flex; flex-direction: column; gap: 0.35rem; }
+  &__dots { display: flex; gap: 3px; }
+  &__dots span { width: 0.7rem; height: 1rem; border-radius: 2px; }
+}
+
+// gallery — contact-sheet tiles
+.pv-gallery {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+  gap: 0.5rem;
+
+  &__tile {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    border-radius: 3px;
+    overflow: hidden;
+    background: repeating-linear-gradient(135deg, #d8d2c9 0 14px, #d1cbc1 14px 28px);
+
+    img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .pv-label { position: absolute; left: 0.4rem; bottom: 0.4rem; }
+  }
+}
+
+// writings — index list
+.pv-writings {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid $card-line;
+    &:last-child { border-bottom: 0; }
+  }
+
+  &__title {
+    font-family: vars.$font-sans;
+    font-size: 0.8125rem;
+    a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+    a:hover { color: $purple; }
+  }
+}

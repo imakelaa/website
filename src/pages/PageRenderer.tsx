@@ -8,6 +8,7 @@ const SECTION_BG: Partial<Record<SectionConfig["type"], string>> = {
   home:    "#0d1f3c",
   roles:   "#f5f0e8",
   work:    "#e8c9a0",
+  portfolio: "#0b0021",
   style:   "#b8c9d9",
   footer:  "#0d1f3c",
 };

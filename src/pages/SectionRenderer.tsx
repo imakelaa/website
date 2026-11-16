@@ -8,6 +8,7 @@ import { ProjectsSection } from "./page_sections/HomeProjectsSection";
 import { HomeSection } from "./page_sections/HomeSection";
 import { RolesSection } from "./page_sections/RolesSection";
 import { WorkSection } from "./page_sections/WorkSection";
+import { PortfolioSection } from "./page_sections/PortfolioSection";
 import { CultureSection } from "./page_sections/CultureSection";
 import { StyleSection } from "./page_sections/StyleSection";
 import { FooterSection } from "./page_sections/FooterSection";
@@ -17,6 +18,7 @@ function renderSection(section: SectionConfig) {
     case "home":    return <HomeSection {...section} />;
     case "roles":   return <RolesSection {...section} />;
     case "work":    return <WorkSection {...section} />;
+    case "portfolio": return <PortfolioSection {...section} />;
     case "culture": return <CultureSection {...section} />;
     case "style":   return <StyleSection {...section} />;
     case "footer":  return <FooterSection {...section} />;
