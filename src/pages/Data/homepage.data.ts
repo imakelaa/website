@@ -84,7 +84,7 @@ export const homePage: PageConfig = {
           description: "A Photobooth-inspired web app. Engineering dive blog in progress.",
           links: [
             { label: "try the app", kind: "feature", href: "https://telephoto.pasinha.workers.dev/" },
-            { label: "engineering dive blog", kind: "blog", href: "/writings/telephoto" },
+            { label: "engineering dive [blog]", kind: "blog", href: "/writings/telephoto" },
           ],
         },
         {
@@ -99,7 +99,7 @@ export const homePage: PageConfig = {
               { label: "via VPN", values: [7, 7, 8, 7, 7, 8, 7, 7, 7, 8, 8, 7, 7, 8, 7, 7, 8, 7, 7, 7, 8, 7, 7, 8], color: "purple" },
             ],
           },
-          description: "MS thesis at UC Santa Cruz: website fingerprinting attacks, evaluated through VPNs.",
+          description: "MS thesis at UC Santa Cruz. Evaluating User Experience through VPNs.",
           links: [{ label: "slides", kind: "feature", href: "/slides/vpn-thesis.pdf" }],
         },
         {
