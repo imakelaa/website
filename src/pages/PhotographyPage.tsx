@@ -1,49 +1,31 @@
-import { useState, useEffect, useRef, useCallback } from "react";
-import cameraImg from "../assets/photography/camera-landscape.webp";
-// import p1 from "../assets/IMG_1425.webp";
-import p2 from "../assets/landing-page/intro-img.webp";
-import p3 from "../assets/landing-page/intro-img2.webp";
 import "./PhotographyPage.scss";
 
-const photos = [p2, p3];
+// Pull in every image in the uploads folder at build time.
+// Drop a new file in there and it shows up automatically — no code edits needed.
+const modules = import.meta.glob<string>(
+  "../assets/photography/photography-uploads/*.{jpg,JPG,jpeg,JPEG,png,PNG,webp}",
+  { eager: true, query: "?url", import: "default" }
+);
 
-const INTERVAL = 8000;
+// Sort by filename "naturally" so img2 comes before img10.
+const photos = Object.entries(modules)
+  .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true }))
+  .map(([, url]) => url);
 
 export default function PhotographyPage() {
-  const [current, setCurrent] = useState(0);
-  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
-
-  const resetTimer = useCallback(() => {
-    if (timerRef.current) clearInterval(timerRef.current);
-    timerRef.current = setInterval(() => {
-      setCurrent((i) => (i + 1) % photos.length);
-    }, INTERVAL);
-  }, []);
-
-  useEffect(() => {
-    resetTimer();
-    return () => { if (timerRef.current) clearInterval(timerRef.current); };
-  }, [resetTimer]);
-
-  const prev = () => { setCurrent((i) => (i - 1 + photos.length) % photos.length); resetTimer(); };
-  const next = () => { setCurrent((i) => (i + 1) % photos.length); resetTimer(); };
-
   return (
     <div className="photography-page">
-      <div className="photography-page__camera-wrap">
-        <img src={cameraImg} alt="camera" className="photography-page__camera" />
-        <div className="photography-page__screen">
-          {photos.map((p, i) => (
-            <img
-              key={i}
-              src={p}
-              alt=""
-              className={`photography-page__slide${i === current ? " photography-page__slide--active" : ""}`}
-            />
-          ))}
-        </div>
-        <button className="photography-page__arrow photography-page__arrow--left" onClick={prev} aria-label="Previous photo">&#8249;</button>
-        <button className="photography-page__arrow photography-page__arrow--right" onClick={next} aria-label="Next photo">&#8250;</button>
+      <div className="photography-page__grid">
+        {photos.map((src, i) => (
+          <img
+            key={src}
+            src={src}
+            alt={`Photo ${i + 1}`}
+            loading="lazy"
+            decoding="async"
+            className="photography-page__photo"
+          />
+        ))}
       </div>
     </div>
   );

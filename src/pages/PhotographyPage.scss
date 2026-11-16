@@ -3,73 +3,34 @@
 .photography-page {
   min-height: 100vh;
   background: #0d1f3c;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
+  padding: 3rem 2rem;
 
-  &__camera-wrap {
-    position: relative;
-    // Display at 75vw wide, constrained by height
-    width: min(75vw, 130vh);
+  @media (max-width: 768px) {
+    padding: 1.5rem 1rem;
   }
 
-  &__camera {
+  // Masonry-style layout: CSS columns let photos keep their natural
+  // aspect ratio and stack tightly, like a Pinterest board.
+  &__grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    columns: 3 320px; // up to 3 columns, each at least 320px wide
+    column-gap: 1rem;
+  }
+
+  &__photo {
     width: 100%;
     height: auto;
     display: block;
-    position: relative;
-    z-index: 2;
-  }
-
-  // Positioned precisely over the LCD screen cutout
-  // Measured from camera-landscape.png (1534x1004): left=122px, top=298px, right=844px, bottom=826px
-  &__screen {
-    position: absolute;
-    left: 8.0%;
-    top: 29.68%;
-    width: 47.0%;
-    height: 52.59%;
-    overflow: hidden;
-    background: #000;
-    z-index: 1;
-  }
-
-  &__slide {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 0.8s ease;
-
-    &--active {
-      opacity: 1;
-    }
-  }
-
-  &__arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.18);
-    border: none;
-    color: #fff;
-    font-size: 2.5rem;
-    line-height: 1;
-    padding: 0.4rem 0.7rem;
-    border-radius: 6px;
-    cursor: pointer;
-    z-index: 3;
-    backdrop-filter: blur(4px);
-    transition: background 0.2s;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    break-inside: avoid; // don't split a photo across two columns
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 
     &:hover {
-      background: rgba(255, 255, 255, 0.32);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
     }
-
-    &--left  { left: 1rem; }
-    &--right { right: 1rem; }
   }
 }
