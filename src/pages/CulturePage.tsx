@@ -1,9 +1,7 @@
 import { CultureSection } from "./page_sections/CultureSection";
-import bgCulture from "../assets/BG.jpg";
 
 const cultureData = {
   type: "culture" as const,
-  backgroundPhoto: bgCulture,
   desktopFiles: [
     { label: "Culture.jpg", type: "image" as const },
     { label: "Culture.jpg", type: "image" as const },

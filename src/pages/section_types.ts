@@ -109,7 +109,7 @@ export interface PortfolioSection {
 
 export interface CultureSection {
   type: "culture";
-  backgroundPhoto: string;
+  backgroundPhoto?: string;
   desktopFiles: { label: string; type: "image" | "folder" | "globe"; thumb?: string }[];
   quoteHeading: string;
   quoteItalic: string;

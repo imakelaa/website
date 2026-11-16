@@ -1,15 +1,11 @@
 import { useState, useEffect, useRef, useCallback } from "react";
-import cameraImg from "../assets/camera-landscape.webp";
+import cameraImg from "../assets/photography/camera-landscape.webp";
 // import p1 from "../assets/IMG_1425.webp";
-import p2 from "../assets/intro-img.webp";
-import p3 from "../assets/intro-img2.webp";
-import p4 from "../assets/bg.webp";
-// import p5 from "../assets/bg2.webp";
-import p6 from "../assets/bg3.webp";
+import p2 from "../assets/landing-page/intro-img.webp";
+import p3 from "../assets/landing-page/intro-img2.webp";
 import "./PhotographyPage.scss";
 
-// const photos = [p1, p2, p3, p4, p5, p6];
-const photos = [p2, p3, p4, p6];
+const photos = [p2, p3];
 
 const INTERVAL = 8000;
 

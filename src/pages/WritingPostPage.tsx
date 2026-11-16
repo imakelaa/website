@@ -8,10 +8,16 @@ const markdownFiles = import.meta.glob("../content/writings/*.md", {
   import: "default",
 });
 
-const contentImages = import.meta.glob("../content/images/*", {
+// All site images live in src/assets/ (any subfolder).
+// Posts reference them by file name, e.g. ![alt](tor-diagram.png).
+const assetImages = import.meta.glob("../assets/**/*.{png,jpg,jpeg,webp,gif,svg}", {
   eager: true,
   import: "default",
 }) as Record<string, string>;
+
+const imageByName = Object.fromEntries(
+  Object.entries(assetImages).map(([path, url]) => [path.split("/").pop()!, url]),
+);
 
 function extractSections(raw: string): string[] {
   return raw
@@ -68,7 +74,7 @@ export default function WritingPostPage() {
               ),
               img: ({ src, alt }) => {
                 const filename = src?.split("/").pop() ?? "";
-                const resolved = contentImages[`../content/images/${filename}`] ?? src;
+                const resolved = imageByName[filename] ?? src;
                 return <img src={resolved} alt={alt ?? ""} className="writing-post__img" />;
               },
             }}

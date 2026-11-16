@@ -1,12 +1,11 @@
 import type { PageConfig } from "../page_types";
 // import sampleImage from "../../assets/sample-image.webp";
-import introImage from "../../assets/intro-img.webp";
-import introImage2 from "../../assets/intro-img2.webp";
-// import bgRoles from "../../assets/BG.jpg";
-import kayak from "../../assets/kayak.webp";
-import telephotoPreview from "../../assets/telephoto-preview.jpg";
-import bookTesseraLogo from "../../assets/booktessera-logo.png";
-import torDiagram from "../../assets/tor-diagram.png";
+import introImage from "../../assets/landing-page/intro-img.webp";
+import introImage2 from "../../assets/landing-page/intro-img2.webp";
+import kayak from "../../assets/landing-page/kayak.webp";
+import telephotoPreview from "../../assets/landing-page/work-section/telephoto-preview.jpg";
+import bookTesseraLogo from "../../assets/landing-page/work-section/booktessera-logo.png";
+import torDiagram from "../../assets/landing-page/work-section/tor-diagram.png";
 
 export const homePage: PageConfig = {
   title: "Home",
