@@ -52,7 +52,6 @@ Blog: https://blog.cloudflare.com/extract-audio-from-your-videos-with-cloudflare
 
 **BookTessera** — Full-stack product, designed and built independently
 Ticketing platform for concerts and events. React frontend, Flask backend, time-based priority queue for fair ticket allocation, K-Means clustering for seating recommendations. Built to solve a real frustration with existing ticketing UX.
-Write-up: https://itspakhi.com/writings/book-tessera
 
 **Website Fingerprinting via VPNs** — Security research (MS thesis)
 Investigated whether website fingerprinting attacks remain viable against traffic routed through commercial VPNs. Evaluated traffic analysis techniques against encrypted, tunneled connections to characterize real-world privacy guarantees.

@@ -149,7 +149,9 @@ export const homePage: PageConfig = {
           description: [
             { label: "Problem",  text: "Tor protects your identity, but AI models can still guess which sites you visit from traffic patterns." },
             { label: "Findings", text: "Attacks guessed right 98% of the time. Defense models cut that to 45%. Retraining improved accuracy back to 80%." },
+            { label: "Note", text: "We did not build these models from scratch. Simply, studied, evaluated, and adopted models developed by researchers."}
           ],
+          links: [{ label: "find out more", kind: "blog", href: "/writings/wf-defense" }],
         },
         {
           id: "booktessera",
@@ -163,10 +165,10 @@ export const homePage: PageConfig = {
             { label: "Problem",    text: "Buying tickets for popular concerts is chaotic and feels unfair." },
             { label: "Proposed Soln",   text: "Solving first-come, first-served with a time-based queue that allocates tickets within desired zone." },
             { label: "Tech stack", text: "React, Python, Flask, K-Means clustering." },
+            { label: "Collaborators", text: "Shreya Sundar, Naimisha Daripineni, Alex Furlong, Sophie Hernandez." },
           ],
           links: [
             { label: "slides", kind: "feature", href: "/slides/BT.pdf" },
-            { label: "read the post", kind: "blog", href: "/writings/book-tessera" },
           ],
         },
         {
