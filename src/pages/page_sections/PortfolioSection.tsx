@@ -30,7 +30,8 @@ function BlockLink({ link, index }: { link: PortfolioLink; index: number }) {
   const style = link.style ?? (index === 0 ? "primary" : "dark");
   return (
     <SmartLink href={link.href} className={`portfolio-btn portfolio-btn--${style}`}>
-      {link.label} <span aria-hidden="true">↗</span>
+      {/* ︎ = "text presentation" selector: stops iOS/Android drawing ↗ as an emoji */}
+      {link.label} <span aria-hidden="true">{"↗︎"}</span>
     </SmartLink>
   );
 }
