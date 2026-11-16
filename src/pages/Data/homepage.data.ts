@@ -30,25 +30,6 @@ export const homePage: PageConfig = {
       },
     },
     {
-      type: "style",
-      headline: "Building things that matter",
-      highlightedWord: "matter",
-      body: [
-        "Creativity and authenticity are super important to me.",
-        "I spend a lot of time learning and trying new things. Whether it's conceptualizing apps, or just expressing myself.",
-        "I learn by building, testing, and occasionally breaking things in interesting ways. This site is also a snapshot of that process.",
-      ],
-      photo: kayak,
-      fakeFiles: ["photography", "writings"],
-      stickyNoteTitle: "This year, it was...",
-      checklist: [
-        // { text: "confidence", checked: true },
-        { text: "reaching out", checked: true },
-        { text: "trying new things", checked: true },
-        { text: "build a cyberdeck", checked: false },
-      ],
-    },
-    {
       type: "portfolio",
       prompt: "A few windows into what I'm building, researching, making and writing.",
       // Order sets the numbers: engineer = 01, researcher = 02, …
@@ -198,6 +179,25 @@ export const homePage: PageConfig = {
           visual: { kind: "writings" }, // pulls from Data/writings.data.ts
           links: [{ label: "all writing", href: "/writings", style: "dark" }],
         },
+      ],
+    },
+    {
+      type: "style",
+      headline: "Building things that matter",
+      highlightedWord: "matter",
+      body: [
+        "Creativity and authenticity are super important to me.",
+        "I spend a lot of time learning and trying new things. Whether it's conceptualizing apps, or just expressing myself.",
+        "I learn by building, testing, and occasionally breaking things in interesting ways. This site is also a snapshot of that process.",
+      ],
+      photo: kayak,
+      fakeFiles: ["photography", "writings"],
+      stickyNoteTitle: "This year, it was...",
+      checklist: [
+        // { text: "confidence", checked: true },
+        { text: "reaching out", checked: true },
+        { text: "trying new things", checked: true },
+        { text: "build a cyberdeck", checked: false },
       ],
     },
     {
