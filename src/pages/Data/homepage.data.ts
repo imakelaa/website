@@ -196,7 +196,10 @@ export const homePage: PageConfig = {
     {
       type: "footer",
       linkedinUrl: "https://www.linkedin.com/in/pakhi-sinha-/",
-      sections: ["home", "resume", "sidequests"],
+      sections: [
+        { label: "home", href: "/" },
+        { label: "resume", href: "https://drive.google.com/file/d/1ml3ep4_F_veIqSVG771ucRiHMBmTcKoY/view?usp=sharing" },
+      ],
       tagline: "Driven by curiosity :)",
       name: "pakhi sinha",
     },

@@ -1,7 +1,4 @@
 export type SectionConfig =
-  | ContactSection
-  | SkillsSection
-  | TimelineSection
   | AboutSection
   | ProjectsSection
   | HomeSection
@@ -136,53 +133,12 @@ export interface StyleSection {
 export interface FooterSection {
   type: "footer";
   linkedinUrl: string;
-  sections: string[];
+  sections: { label: string; href?: string }[]; // no href → plain text (e.g. a page that isn't live yet)
   tagline: string;
   name: string;
 }
 
-// ── Legacy sections (resume page) ────────────────────────────
-
-export interface ContactSection {
-  type: "contact";
-  name: string;
-  title: string;
-  location?: string;
-  links: { label: string; url: string }[];
-}
-
-export interface SkillsSection {
-  type: "skills";
-  title?: string;
-  groups: { label: string; items: string[] }[];
-}
-
-export interface TimelineSection {
-  type: "timeline";
-  title: string;
-  variant?: "education" | "experience";
-  items: TimelineItem[];
-}
-
-export interface TextWithLink {
-  text: string;
-  link?: { label: string; url: string };
-}
-
-export interface TimelineBulletItem {
-  text: string;
-  link?: { label: string; url: string };
-}
-
-export type TimelineBullet = TimelineBulletItem | TimelineBulletItem[];
-
-export interface TimelineItem {
-  id: string;
-  title: string;
-  subtitle?: TextWithLink | TextWithLink[];
-  date: string;
-  bullets?: TimelineBullet[];
-}
+// ── Legacy sections (no longer used on any page) ──────────────
 
 export interface AboutSection {
   type: "about";

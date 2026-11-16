@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import { NavBar } from "./components/Navbar";
-import Resume from "./pages/ResumePage";
 import CulturePage from "./pages/CulturePage";
 import WritingsPage from "./pages/WritingsPage";
 import WritingPostPage from "./pages/WritingPostPage";
@@ -47,7 +46,6 @@ function AppWrapper() {
       <main className={isHome ? "" : "content-wrapper"}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/resume" element={<Resume />} />
           <Route path="/contents" element={<CulturePage />} />
           <Route path="/writings" element={<WritingsPage />} />
           <Route path="/writings/:slug" element={<WritingPostPage />} />

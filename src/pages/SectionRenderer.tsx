@@ -1,8 +1,5 @@
 import { useEffect, useRef, type ReactNode } from "react";
 import type { SectionConfig } from "./section_types";
-import { ContactSection } from "./page_sections/ContactSection";
-import { SkillsSection } from "./page_sections/SkillSection";
-import { TimelineSection } from "./page_sections/Timeline";
 import { AboutSection } from "./page_sections/HomeAboutSection";
 import { ProjectsSection } from "./page_sections/HomeProjectsSection";
 import { HomeSection } from "./page_sections/HomeSection";
@@ -22,9 +19,6 @@ function renderSection(section: SectionConfig) {
     case "culture": return <CultureSection {...section} />;
     case "style":   return <StyleSection {...section} />;
     case "footer":  return <FooterSection {...section} />;
-    case "contact": return <ContactSection {...section} />;
-    case "skills":  return <SkillsSection {...section} />;
-    case "timeline":return <TimelineSection {...section} />;
     case "about":   return <AboutSection {...section} />;
     case "projects":return <ProjectsSection {...section} />;
     default:        return null;
