@@ -121,9 +121,10 @@ export interface ChecklistItem {
 export interface StyleSection {
   type: "style";
   headline: string;
-  highlightedWord: string;
+  highlightedWord?: string; // optional: part of the headline shown in italic serif; omit/empty for a plain headline
   body: string[];
   photo: string;
+  photoNote?: string;     // hover sticky note on the life3.png photo card
   fakeFiles: string[];
   stickyNoteTitle: string;
   checklist: ChecklistItem[];

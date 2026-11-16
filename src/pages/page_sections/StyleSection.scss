@@ -68,18 +68,23 @@
   }
 
   // ── Center: macOS file-preview card ─────────────────────
-  &__photo-card {
+  // Takes the card's old layout slot; positions the hover note under the card
+  &__photo-wrap {
     flex: 0 0 36%;
-    border: 1px solid #c8c8c8;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
-    background: #fff;
+    position: relative;
 
     @media (max-width: 768px) {
       grid-area: photo;
       width: 100%;
     }
+  }
+
+  &__photo-card {
+    border: 1px solid #c8c8c8;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+    background: #fff;
   }
 
   &__photo-bar {

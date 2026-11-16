@@ -183,14 +183,15 @@ export const homePage: PageConfig = {
     },
     {
       type: "style",
-      headline: "Building things that matter",
-      highlightedWord: "matter",
+      headline: "Building, learning, creating :)",
+      highlightedWord: "",
       body: [
-        "Creativity and authenticity are super important to me.",
-        "I spend a lot of time learning and trying new things. Whether it's conceptualizing apps, or just expressing myself.",
-        "I learn by building, testing, and occasionally breaking things in interesting ways. This site is also a snapshot of that process.",
+        // "Creativity and authenticity are super important to me.",
+        "I spend a lot of time learning and trying new things.",
+        "I learn by building, testing, and occasionally breaking things in interesting ways. This site is a snapshot of that process.",
       ],
       photo: kayak,
+      photoNote: "I designed this website myself! Took a LOT of inspiration, but I put a lot of thought into it, and wanted it to feel as such.", // hover note on the life3.png card
       fakeFiles: ["photography", "writings"],
       stickyNoteTitle: "This year, it was...",
       checklist: [
