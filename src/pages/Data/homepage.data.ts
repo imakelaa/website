@@ -5,6 +5,8 @@ import introImage2 from "../../assets/intro-img2.webp";
 // import bgRoles from "../../assets/BG.jpg";
 import kayak from "../../assets/kayak.webp";
 import telephotoPreview from "../../assets/telephoto-preview.jpg";
+import bookTesseraLogo from "../../assets/booktessera-logo.png";
+import torDiagram from "../../assets/tor-diagram.png";
 
 export const homePage: PageConfig = {
   title: "Home",
@@ -91,50 +93,81 @@ export const homePage: PageConfig = {
           id: "vpn-thesis",
           title: "Is Your VPN Getting You Blocked?",
           roles: ["researcher"],
+          size: "sm",
           date: "2026",
-          visual: {
-            kind: "bars",
-            series: [
-              { label: "direct",  values: [3, 9, 5, 10, 4, 8, 2, 9, 6, 10, 3, 7, 9, 4, 8, 10, 5, 9, 3, 8, 6, 10, 4, 9], color: "dark" },
-              { label: "via VPN", values: [7, 7, 8, 7, 7, 8, 7, 7, 7, 8, 8, 7, 7, 8, 7, 7, 8, 7, 7, 7, 8, 7, 7, 8], color: "purple" },
-            ],
-          },
-          description: "MS thesis at UC Santa Cruz. Evaluating User Experience through VPNs.",
+          visual: [
+            // Single-pipeline result (thesis slide 13): share of the Tranco top 10K
+            // blocked only when going through each VPN.
+            {
+              kind: "meter",
+              caption: "top 10K sites that blocked the VPN",
+              max: 1.59, unit: "%", showValues: true,
+              rows: [
+                { label: "nordvpn",   value: 1.59, color: "dark" },
+                { label: "surfshark", value: 0.42, color: "purple" },
+              ],
+            },
+            // Overlap of 200→403 blocked domains (thesis slide 9): few sites blocked both,
+            // so blocking tracks the specific exit rather than "being a VPN".
+            {
+              kind: "meter",
+              caption: "sites that blocked…",
+              max: 95, showValues: true,
+              rows: [
+                { label: "nord only", value: 95, color: "dark" },
+                { label: "surf only", value: 17, color: "purple" },
+                { label: "both",      value: 16, color: "yellow" },
+              ],
+            },
+          ],
+          description: [
+            { label: "Problem",  text: "Websites may block VPN users. An investigation into VPN providers and the networks they use." },
+            { label: "Findings", text: "Based on the scope of my investigation, the exit server you land on might matter. Additionally, found overlapping infrastructure between the (2) VPN providers." },
+          ],
           links: [{ label: "slides", kind: "feature", href: "/slides/vpn-thesis.pdf" }],
         },
         {
-          id: "far-memory",
-          title: "Study on Far Memory",
+          id: "wf-defense",
+          title: "Defending Website Fingerprinting Attacks using Adversarial ML",
           roles: ["researcher"],
           date: "2025",
-          visual: {
-            kind: "meter",
-            rows: [
-              { label: "local access", value: 0.3,  color: "dark" },
-              { label: "remote fetch", value: 1,    color: "purple" },
-            ],
-          },
-          description: "Benchmarked AIFM on CloudLab xl170 nodes: remote fetch vs. local access.",
-          links: [
-            { label: "blog post", kind: "blog", href: "/writings/far-memory" },
-            { label: "paper", kind: "feature", href: "https://www.usenix.org/system/files/osdi20-ruan.pdf" },
+          visual: [
+            { kind: "logo", src: torDiagram, alt: "Tor circuit: user → entry guard → middle relay → exit node, with an attacker watching the first hop" },
+            // DF top-1 accuracy from the report's key findings (6.8):
+            // ≈98% undefended → 0.45 with Mockingbird (0.45–0.60 depending on caps) → back to 0.80 after retraining.
+            {
+              kind: "meter",
+              caption: "DF attacker accuracy",
+              max: 100, unit: "%", showValues: true,
+              rows: [
+                { label: "undefended",  value: 98, color: "dark" },
+                { label: "mockingbird", value: 45, color: "purple" },
+                { label: "retrained",   value: 80, color: "yellow" },
+              ],
+            },
+          ],
+          description: [
+            { label: "Problem",  text: "Tor protects your identity, but AI models can still guess which sites you visit from traffic patterns." },
+            { label: "Findings", text: "Attacks guessed right 98% of the time. Defense models cut that to 45%. Retraining improved accuracy back to 80%." },
           ],
         },
         {
           id: "booktessera",
           title: "BookTessera",
           roles: ["engineer"],
+          size: "sm",
+          compact: true,
           date: "2024",
-          visual: {
-            kind: "clusters",
-            groups: [
-              { label: "cluster 1", count: 3, color: "dark" },
-              { label: "cluster 2", count: 2, color: "purple" },
-              { label: "cluster 3", count: 3, color: "yellow" },
-            ],
-          },
-          description: "Concert ticketing in React + Flask, with a K-Means priority queue.",
-          links: [{ label: "read the post", kind: "blog", href: "/writings/book-tessera" }],
+          visual: { kind: "logo", src: bookTesseraLogo, alt: "BookTessera logo" },
+          description: [
+            { label: "Problem",    text: "Buying tickets for popular concerts is chaotic and feels unfair." },
+            { label: "Proposed Soln",   text: "Solving first-come, first-served with a time-based queue that allocates tickets within desired zone." },
+            { label: "Tech stack", text: "React, Python, Flask, K-Means clustering." },
+          ],
+          links: [
+            { label: "slides", kind: "feature", href: "/slides/BT.pdf" },
+            { label: "read the post", kind: "blog", href: "/writings/book-tessera" },
+          ],
         },
         {
           id: "contact-sheet",

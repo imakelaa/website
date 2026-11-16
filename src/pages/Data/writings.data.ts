@@ -52,7 +52,6 @@ export const writings: Writing[] = [
     excerpt: "Cloudflare Stream is expanding its capabilities beyond video processing. The platform now enables developers to seamlessly extract audio from videos through a unified system designed to simplify media workflows — because processing entire video files just to access audio is slow, costly, and complex.",
   },
   { category: "Engineering Dive Blog", year: "2026", slug: "telephoto" },
-  { category: "Research", year: "2025", slug: "far-memory" },
   // { category: "Essay",    year: "2024", slug: "working-in-tech" },
   // { category: "Essay",    year: "2025", slug: "aesthetic" },
   { category: "Project",  year: "2024", slug: "book-tessera" },

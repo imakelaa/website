@@ -41,6 +41,9 @@ function PortfolioVisual({ visual }: { visual: Visual }) {
     case "image":
       return <img className="pv-image" src={visual.src} alt={visual.alt} loading="lazy" />;
 
+    case "logo":
+      return <div className="pv-panel pv-logo"><img src={visual.src} alt={visual.alt} loading="lazy" /></div>;
+
     case "placeholder":
       return <div className="pv-placeholder"><span>[ {visual.label} ]</span></div>;
 
@@ -74,19 +77,23 @@ function PortfolioVisual({ visual }: { visual: Visual }) {
       );
     }
 
-    case "meter":
+    case "meter": {
+      const { max = 1, unit = "" } = visual;
       return (
         <div className="pv-panel pv-meter">
+          {visual.caption && <span className="pv-label pv-meter__caption">{visual.caption}</span>}
           {visual.rows.map(r => (
             <div key={r.label} className="pv-meter__row">
               <span className="pv-label">{r.label}</span>
               <div className="pv-meter__track">
-                <span className={`pv-meter__fill pv-fill--${r.color ?? "dark"}`} style={{ width: `${Math.min(1, r.value) * 100}%` }} />
+                <span className={`pv-meter__fill pv-fill--${r.color ?? "dark"}`} style={{ width: `${Math.min(1, r.value / max) * 100}%` }} />
               </div>
+              {visual.showValues && <span className="pv-label pv-meter__value">{r.value}{unit}</span>}
             </div>
           ))}
         </div>
       );
+    }
 
     case "clusters":
       return (
@@ -137,7 +144,7 @@ function PortfolioVisual({ visual }: { visual: Visual }) {
 // ── One block ───────────────────────────────────────────────────
 function Block({ block, dimmed }: { block: PortfolioBlock; dimmed: boolean }) {
   return (
-    <article className={`portfolio-block portfolio-block--${block.size ?? "sm"}${block.href ? " is-linked" : ""}${dimmed ? " is-dimmed" : ""}`}>
+    <article className={`portfolio-block portfolio-block--${block.size ?? "sm"}${block.href ? " is-linked" : ""}${block.compact ? " is-compact" : ""}${dimmed ? " is-dimmed" : ""}`}>
       <header className="portfolio-block__header">
         {/* With an href, the title link's ::after stretches over the whole card
             (see .portfolio-block__cover), making the block clickable without
@@ -148,8 +155,17 @@ function Block({ block, dimmed }: { block: PortfolioBlock; dimmed: boolean }) {
         {block.date && <span className="pv-meta">{block.date}</span>}
       </header>
       <div className="portfolio-block__body">
-        {block.visual && <div className="portfolio-block__visual"><PortfolioVisual visual={block.visual} /></div>}
-        {block.description && <p className="portfolio-block__desc">{block.description}</p>}
+        {block.visual && (
+          <div className="portfolio-block__visual">
+            {[block.visual].flat().map((v, i) => <PortfolioVisual key={i} visual={v} />)}
+          </div>
+        )}
+        {typeof block.description === "string" && <p className="portfolio-block__desc">{block.description}</p>}
+        {Array.isArray(block.description) && (
+          <div className="portfolio-block__desc">
+            {block.description.map(d => <p key={d.label}><strong>{d.label}:</strong> {d.text}</p>)}
+          </div>
+        )}
         {block.links?.length ? (
           <div className="portfolio-block__links">
             {sortLinks(block.links).map((l, i) => <BlockLink key={l.href} link={l} index={i} />)}

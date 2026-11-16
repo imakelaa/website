@@ -113,16 +113,17 @@ $yellow:    vars.$mustard;
   overflow: hidden;
   transition: opacity 0.25s, filter 0.25s;
 
-  &--lg { grid-column: span 7; }
-  &--md { grid-column: span 5; }
+  &--lg   { grid-column: span 7; }
+  &--half { grid-column: span 6; }
+  &--md   { grid-column: span 5; }
 
   @media (max-width: 900px) {
     grid-column: span 1;
     &--lg { grid-column: span 2; }
-    &--md { grid-column: span 1; }
+    &--md, &--half { grid-column: span 1; }
   }
   @media (max-width: 600px) {
-    &, &--lg, &--md { grid-column: span 1; }
+    &, &--lg, &--half, &--md { grid-column: span 1; }
   }
 
   // ── Whole-card link ("stretched link") ──
@@ -160,6 +161,8 @@ $yellow:    vars.$mustard;
     }
   }
 
+  &.is-compact { align-self: start; }
+
   &.is-dimmed {
     opacity: 0.35;
     filter: grayscale(0.6);
@@ -190,8 +193,12 @@ $yellow:    vars.$mustard;
   }
 
   // Big-visual blocks (lg / md) let the illustration grow to fill the card
+  &__visual { display: flex; flex-direction: column; gap: 0.5rem; } // stacks multiple visuals
+
   &--lg &__visual,
-  &--md &__visual { flex: 1; display: flex; flex-direction: column; }
+  &--md &__visual { flex: 1; }
+  // …except chart panels, which keep their natural height (extra space goes above the buttons)
+  &__visual:has(> .pv-panel) { flex: 0 0 auto; }
 
   &__desc {
     margin: 0;
@@ -199,6 +206,10 @@ $yellow:    vars.$mustard;
     font-size: 0.8125rem;
     line-height: 1.5;
     color: $muted;
+
+    p { margin: 0; }
+    p + p { margin-top: 0.35rem; }
+    strong { color: $ink; font-weight: 600; }
   }
 
   &__links {
@@ -254,6 +265,18 @@ $yellow:    vars.$mustard;
   border-radius: 4px;
   display: block;
   flex: 1;
+}
+
+// logo — the box takes the logo's own shape: full card width, natural aspect ratio
+.pv-logo {
+  padding: 0;
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
 }
 
 // placeholder — diagonal stripes
@@ -357,6 +380,8 @@ $yellow:    vars.$mustard;
   .pv-label { width: 5rem; flex-shrink: 0; }
   &__track { flex: 1; height: 0.5rem; }
   &__fill { display: block; height: 100%; }
+  &__caption { margin-bottom: 0.15rem; }
+  &__value { width: 2.75rem; text-align: right; color: $ink; }
 }
 
 // clusters — groups of squares

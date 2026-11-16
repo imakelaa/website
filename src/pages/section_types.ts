@@ -75,10 +75,13 @@ export interface PortfolioLink {
 // PortfolioVisual to support a new kind of illustration.
 export type PortfolioVisual =
   | { kind: "image"; src: string; alt: string }
+  | { kind: "logo"; src: string; alt: string }                                  // whole logo, centered on a light panel (never cropped)
   | { kind: "placeholder"; label: string }
   | { kind: "badge"; title: string; caption?: string; src?: string }            // viewfinder; `src` shows a preview image instead of the title ring
   | { kind: "bars"; series: { label: string; values: number[]; color?: "dark" | "purple" | "yellow" }[] }
-  | { kind: "meter"; rows: { label: string; value: number; color?: "dark" | "purple" | "yellow" }[] } // value 0–1
+  | { kind: "meter";                                                            // horizontal bars; width = value / max
+      caption?: string; max?: number; unit?: string; showValues?: boolean;
+      rows: { label: string; value: number; color?: "dark" | "purple" | "yellow" }[] }
   | { kind: "clusters"; groups: { label: string; count: number; color?: "dark" | "purple" | "yellow" }[] }
   | { kind: "gallery"; items: { label: string; src?: string }[] }
   | { kind: "writings"; limit?: number };                                       // list pulled from writings.data
@@ -88,9 +91,10 @@ export interface PortfolioBlock {
   title: string;
   roles: string[];        // role ids → used to highlight the block when its role is picked
   date?: string;          // year shown in the card header, e.g. "2025"
-  size?: "lg" | "md" | "sm"; // desktop width: 7 / 5 / 4 of 12 columns (default "sm")
-  visual?: PortfolioVisual;
-  description?: string;
+  size?: "lg" | "half" | "md" | "sm"; // desktop width: 7 / 6 / 5 / 4 of 12 columns (default "sm")
+  compact?: boolean;      // only as tall as its content, instead of stretching to the row's height
+  visual?: PortfolioVisual | PortfolioVisual[]; // pass an array to stack several visuals
+  description?: string | { label: string; text: string }[]; // plain text, or labeled lines like "Problem: …"
   links?: PortfolioLink[];
   href?: string;          // makes the whole block clickable (buttons still work on their own)
 }

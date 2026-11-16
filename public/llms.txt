@@ -54,10 +54,6 @@ Blog: https://blog.cloudflare.com/extract-audio-from-your-videos-with-cloudflare
 Ticketing platform for concerts and events. React frontend, Flask backend, time-based priority queue for fair ticket allocation, K-Means clustering for seating recommendations. Built to solve a real frustration with existing ticketing UX.
 Write-up: https://itspakhi.com/writings/book-tessera
 
-**Far Memory Study** — Systems research
-Deployed and benchmarked AIFM (Application-Integrated Far Memory) on CloudLab xl170 instances. Measured latency and throughput differences between remote memory fetch and local memory access under realistic workloads. Quantified the cost of memory disaggregation in a production-adjacent environment.
-Write-up: https://itspakhi.com/writings/far-memory
-
 **Website Fingerprinting via VPNs** — Security research (MS thesis)
 Investigated whether website fingerprinting attacks remain viable against traffic routed through commercial VPNs. Evaluated traffic analysis techniques against encrypted, tunneled connections to characterize real-world privacy guarantees.
 
