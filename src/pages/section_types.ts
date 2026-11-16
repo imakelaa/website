@@ -80,13 +80,13 @@ export type PortfolioVisual =
       caption?: string; max?: number; unit?: string; showValues?: boolean;
       rows: { label: string; value: number; color?: "dark" | "purple" | "yellow" }[] }
   | { kind: "clusters"; groups: { label: string; count: number; color?: "dark" | "purple" | "yellow" }[] }
-  | { kind: "gallery"; items: { label: string; src?: string }[] }
+  | { kind: "gallery"; items: { label: string; src?: string }[] }             // `label` is the image's alt text (not shown)
   | { kind: "writings"; limit?: number };                                       // list pulled from writings.data
 
 export interface PortfolioBlock {
   id: string;
-  title: string;
-  roles: string[];        // role ids → used to highlight the block when its role is picked
+  title?: string;         // omit to hide the title (header is skipped if there's no date either)
+  roles: string[];       // role ids → used to highlight the block when its role is picked
   date?: string;          // year shown in the card header, e.g. "2025"
   size?: "lg" | "half" | "md" | "sm"; // desktop width: 7 / 6 / 5 / 4 of 12 columns (default "sm")
   compact?: boolean;      // only as tall as its content, instead of stretching to the row's height

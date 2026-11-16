@@ -6,6 +6,10 @@ import kayak from "../../assets/landing-page/kayak.webp";
 import telephotoPreview from "../../assets/landing-page/work-section/telephoto-preview.jpg";
 import bookTesseraLogo from "../../assets/landing-page/work-section/booktessera-logo.png";
 import torDiagram from "../../assets/landing-page/work-section/tor-diagram.png";
+import photo6 from "../../assets/photography/photography-uploads/img6.webp";
+import photo9 from "../../assets/photography/photography-uploads/imh9.webp";
+import photo4 from "../../assets/photography/photography-uploads/img4.webp";
+import photo2 from "../../assets/photography/photography-uploads/img2.webp";
 
 export const homePage: PageConfig = {
   title: "Home",
@@ -172,15 +176,18 @@ export const homePage: PageConfig = {
         },
         {
           id: "contact-sheet",
-          title: "Contact sheet",
           roles: ["artist"],
           size: "lg",
           visual: {
             kind: "gallery",
-            // add `src: someImport` to any item to replace the striped placeholder
-            items: [{ label: "photo" }, { label: "collage" }, { label: "gouache" }, { label: "chalk" }],
+            // tiles render in this order; `label` is alt text only
+            items: [
+              { label: "Photo 6", src: photo6 },
+              { label: "Photo 9", src: photo9 },
+              { label: "Photo 4", src: photo4 },
+              { label: "Photo 2", src: photo2 },
+            ],
           },
-          description: "Collage, photography, painting in gouache, acrylics and chalk.",
           links: [{ label: "photography", href: "/photography", style: "dark" }],
         },
         {

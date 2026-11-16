@@ -112,10 +112,9 @@ function PortfolioVisual({ visual }: { visual: Visual }) {
     case "gallery":
       return (
         <div className="pv-gallery">
-          {visual.items.map(item => (
-            <div key={item.label} className="pv-gallery__tile">
+          {visual.items.map((item, i) => (
+            <div key={i} className="pv-gallery__tile">
               {item.src && <img src={item.src} alt={item.label} loading="lazy" />}
-              <span className="pv-label">[{item.label}]</span>
             </div>
           ))}
         </div>
@@ -145,15 +144,17 @@ function PortfolioVisual({ visual }: { visual: Visual }) {
 function Block({ block, dimmed }: { block: PortfolioBlock; dimmed: boolean }) {
   return (
     <article className={`portfolio-block portfolio-block--${block.size ?? "sm"}${block.href ? " is-linked" : ""}${block.compact ? " is-compact" : ""}${dimmed ? " is-dimmed" : ""}`}>
-      <header className="portfolio-block__header">
-        {/* With an href, the title link's ::after stretches over the whole card
-            (see .portfolio-block__cover), making the block clickable without
-            nesting the buttons inside another <a>. */}
-        {block.href
-          ? <SmartLink href={block.href} className="portfolio-block__title portfolio-block__cover">{block.title}</SmartLink>
-          : <span className="portfolio-block__title">{block.title}</span>}
-        {block.date && <span className="pv-meta">{block.date}</span>}
-      </header>
+      {(block.title || block.date) && (
+        <header className="portfolio-block__header">
+          {/* With an href, the title link's ::after stretches over the whole card
+              (see .portfolio-block__cover), making the block clickable without
+              nesting the buttons inside another <a>. */}
+          {block.title && (block.href
+            ? <SmartLink href={block.href} className="portfolio-block__title portfolio-block__cover">{block.title}</SmartLink>
+            : <span className="portfolio-block__title">{block.title}</span>)}
+          {block.date && <span className="pv-meta">{block.date}</span>}
+        </header>
+      )}
       <div className="portfolio-block__body">
         {block.visual && (
           <div className="portfolio-block__visual">
